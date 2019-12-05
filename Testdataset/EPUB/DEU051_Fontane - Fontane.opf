@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">13</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">c29e50c3-badf-439f-b16b-d27edc827dbf</dc:identifier>
+        <dc:title>DEU051_Fontane</dc:title>
+        <dc:creator opf:file-as="Fontane" opf:role="aut">Fontane</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (4.5.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:language>en</dc:language>
+        <meta content="{&quot;Fontane&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="2019-12-02T20:00:35+00:00" name="calibre:timestamp"/>
+        <meta content="DEU051_Fontane" name="calibre:title_sort"/>
+    </metadata>
+    <guide/>
+</package>

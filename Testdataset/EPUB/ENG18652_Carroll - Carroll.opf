@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">5</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">56860748-c610-4068-a9d4-6b4371d0af02</dc:identifier>
+        <dc:title>ENG18652_Carroll</dc:title>
+        <dc:creator opf:file-as="Carroll" opf:role="aut">Carroll</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (4.5.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:language>en</dc:language>
+        <meta content="{&quot;Carroll&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="2019-12-02T00:34:56.508000+00:00" name="calibre:timestamp"/>
+        <meta content="ENG18652_Carroll" name="calibre:title_sort"/>
+    </metadata>
+    <guide/>
+</package>

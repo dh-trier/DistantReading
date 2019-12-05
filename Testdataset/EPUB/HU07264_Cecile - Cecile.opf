@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">18</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">9d80ba9c-b42b-4a1c-bb08-30a480370749</dc:identifier>
+        <dc:title>HU07264_Cécile</dc:title>
+        <dc:creator opf:file-as="Cécile" opf:role="aut">Cécile</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (4.5.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:language>en</dc:language>
+        <meta content="{&quot;Cécile&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="2019-12-05T11:07:13.801000+00:00" name="calibre:timestamp"/>
+        <meta content="HU07264_Cécile" name="calibre:title_sort"/>
+    </metadata>
+    <guide/>
+</package>
