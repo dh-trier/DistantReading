@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <generic>
+    <provided>
+      <title>Weisse Sclaven oder die Leiden des Volkes</title>
+      <!-- Der Titel aus "/titleStmt/title", aber ohne ": ELTeC edition" o.ä. -->
+      <!-- Es gibt in ELTeC keinen "abstrakten" Werk-Titel. -->
+      <format>text/tg.work+xml</format>
+    </provided>
+    <generated />
+  </generic>
+  <work>
+    <agent role="author" id="gnd:11739467X">Willkomm, Ernst Adolf</agent>
+    <!-- Auch hier müsste die VIAF stehen;  -->
+    <dateOfCreation notBefore="1845" notAfter="1845">1845</dateOfCreation>
+    <!-- aus firstEdition -->
+    <temporal ref="https://github.com/COST-ELTeC/Schemas/">T1</temporal>
+    <!-- Ist das "tag abuse"? Wie könnte man das "controlled vocabulary hier dokumentieren? -->
+    <genre>prose</genre>
+    <type>canonicity=low</type>
+    <type>author=male</type>
+    <type>size=medium</type>
+    <!-- Das ist so keine gute Lösung -->
+  </work>
+</object>

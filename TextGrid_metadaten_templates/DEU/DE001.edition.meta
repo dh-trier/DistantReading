@@ -1,24 +1,38 @@
-<?xml version='1.0' encoding='UTF-8'?><object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <generic>
-        <provided>
-            <title>Weisse Sclaven oder die Leiden des Volkes</title> <!-- //sourceDesc/bibl[@type="digitalSource"]/title -->
-            <format>text/tg.edition+tg.aggregation+xml</format> <!-- Das Element bleibt unverändert -->
-            <notes/> <!-- Brauchen wir das Element? -->
-        </provided>
-        <generated/>
-    </generic>
-    <edition>
-        <isEditionOf>DEU001/DEU001.work</isEditionOf> <!-- entsprechend unserem Pfad -->
-        <agent role="author" id="">Willkomm, Ernst Adolf</agent> <!-- Was ist diese ID gemeint? ID war im Beipsiel schon leer -->
-        <source>
-            <bibliographicCitation>
-                <author id="http://d-nb.info/gnd/11739467X">Willkomm, Ernst Adolf</author> <!-- //author[@id] entspricht unserem Attribut //author[@ref] -->
-                <editionTitle>Weisse Sclaven oder die Leiden des Volkes : ELTeC ausgabe</editionTitle>
-                <placeOfPublication/> <!-- Das Element brauchen wir nicht? -->
-                <dateOfPublication>1845</dateOfPublication> <!-- Hier sollte das Datum von //sourceDesc/bibl[@type="digitalSource"]/date und im DEU001 stimmt das nicht, weil es Datum für "firstEdition" sein sollte -->
-                <spage>313</spage> <!-- Wir wissen noch nicht, was das Element sein sollte -->
-            </bibliographicCitation>
-        </source>
-        <license licenseUri="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 Int'l</license> <!-- //licence[@target] -->
-    </edition>
+<?xml version='1.0' encoding='UTF-8'?>
+<object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <generic>
+    <provided>
+      <title>Weisse Sclaven oder die Leiden des Volkes</title>
+      <!-- //sourceDesc/bibl[@type="digitalSource"]/title -->
+      <format>text/tg.edition+tg.aggregation+xml</format>
+      <!-- Das Element bleibt unverändert -->
+      <notes />
+      <!-- Brauchen wir das Element? -->
+    </provided>
+    <generated />
+  </generic>
+  <edition>
+    <isEditionOf>DEU001/DEU001.work</isEditionOf>
+    <!-- entsprechend unserem Pfad -->
+    <agent role="author" id="http://d-nb.info/gnd/11739467X">Willkomm, Ernst Adolf</agent>
+    <!-- Was ist diese ID gemeint? ID war im Beipsiel schon leer -->
+    <source>
+      <bibliographicCitation>
+        <author id="http://d-nb.info/gnd/11739467X">Willkomm, Ernst Adolf</author>
+        <!-- //author[@id] entspricht unserem Attribut //author[@ref] -->
+        <editionTitle>Weisse Sclaven oder die Leiden des Volkes : ELTeC ausgabe</editionTitle>
+        <placeOfPublication />
+        <!-- Das Element brauchen wir nicht? -->
+        <dateOfPublication>1845</dateOfPublication>
+        <!-- Hier sollte das Datum von //sourceDesc/bibl[@type="digitalSource"]/date und im DEU001 stimmt das nicht, weil es Datum für "firstEdition" sein sollte -->
+        <spage></spage>
+        <!-- Wir wissen noch nicht, was das Element sein sollte -->
+        <!-- Können wir das löschen, wenn es nicht benötigt wird? Bei digital Source eher selten, dass es relevant ist. -->
+      </bibliographicCitation>
+    </source>
+    <formOfNotation>Latin</formOfNotation>
+    <language>deu</language>
+    <license licenseUri="https://creativecommons.org/licenses/by/4.0/">Markup published with a CC BY 4.0 Int'l licence.</license>
+    <!-- //licence[@target] -->
+  </edition>
 </object>
