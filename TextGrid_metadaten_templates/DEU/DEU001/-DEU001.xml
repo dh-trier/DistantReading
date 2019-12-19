@@ -17,16 +17,18 @@
       </publicationStmt>
       <notesStmt>
         <note>Entstanden 1884/85, Erstdruck in: Universum (Dresden), März-September 1886.</note>
+        <!-- Noch durch die richtigen Informationen ergänzen -->
       </notesStmt>
       <sourceDesc>
         <biblFull>
           <titleStmt>
             <title>Weisse Sclaven oder die Leiden des Volkes</title>
-            <author key="gnd:11739467X">Willkomme, Ernst Adolf</author>
+            <author key="gnd:11739467X">Willkommen, Ernst Adolf</author>
           </titleStmt>
           <extent unit="words">322371</extent>
           <publicationStmt>
-            <date>1845</date>
+            <date>1976</date>
+            <!-- DigitalSource -->
             <pubPlace></pubPlace>
           </publicationStmt>
         </biblFull>
@@ -34,7 +36,7 @@
     </fileDesc>
     <profileDesc>
       <creation>
-        <date notBefore="1844" notAfter="1845"/>
+        <date notBefore="1845" notAfter="1845"/>
       </creation>
       <textClass>
         <keywords scheme="http://textgrid.info/namespaces/metadata/core/2010#genre">
