@@ -1,0 +1,3 @@
+<?xml version="1.0" ?>
+<locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
+<uri resource="file:/home/christof/repos/dh-trier/DistantReading/Testdataset/XML/ENG18652_Carroll.xml" uri="file:/home/christof/repos/cost/Schemas/eltec-0.rng"/><include rules="file:/home/christof/.jedit/plugins/xml.XmlPlugin/schemas.xml" /></locatingRules>

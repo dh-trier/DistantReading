@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?><object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <generic>
+        <provided>
+            <title>Weisse Sclaven oder die Leiden des Volkes</title>
+            <format>text/xml</format>
+        </provided>
+        <generated/>
+    </generic>
+    <item>
+        <rightsHolder id="CA16204">COST Action "Distant Reading for European Literary HIstory"</rightsHolder>
+    </item>
+</object>
