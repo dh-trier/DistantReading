@@ -1,0 +1,15 @@
+<object>
+<generic>
+<provided>
+<title>Alice's Adventures in Wonderland : ELTeC edition</title>
+<format>text/tg.work+xml</format>
+</provided>
+<generated/>
+</generic>
+<work>
+<agent role="author" id="">Carroll, Lewis [pseud.] (1832-1898).</agent>
+<dateOfCreation notBefore="" notAfter=""/>
+<genre>prose</genre>
+<type/>
+</work>
+</object>

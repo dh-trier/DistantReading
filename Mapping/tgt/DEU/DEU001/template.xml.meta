@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?><object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <generic>
+        <provided>
+            <title>Cécile</title>
+            <format>text/xml</format>
+        </provided>
+        <generated>
+            <created>2012-01-11T14:58:19.860+01:00</created>
+            <lastModified>2012-01-11T14:58:19.860+01:00</lastModified>
+            <issued>2012-01-11T14:58:19.860+01:00</issued>
+            <textgridUri extRef="">textgrid:n1s9.0</textgridUri>
+            <revision>0</revision>
+            <pid pidType="handle">hdl:11858/00-1734-0000-0002-B0FA-D</pid>
+            <extent>485376</extent>
+            <dataContributor>tvitt@textgrid.de</dataContributor>
+            <project id="TGPR-372fe6dc-57f2-6cd4-01b5-2c4bbefcfd3c">Digitale Bibliothek</project>
+            <availability>public</availability>
+        </generated>
+    </generic>
+    <item>
+        <rightsHolder id="">TextGrid</rightsHolder>
+    </item>
+</object>

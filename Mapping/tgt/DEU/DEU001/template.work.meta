@@ -1,0 +1,15 @@
+<object>
+<generic>
+<provided>
+<title></title>
+<format>text/tg.work+xml</format>
+</provided>
+<generated/>
+</generic>
+<work>
+<agent role="author" id=""></agent>
+<dateOfCreation notBefore="" notAfter=""/>
+<genre>prose</genre>
+<type></type>
+</work>
+</object>
