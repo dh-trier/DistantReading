@@ -1,5 +1,6 @@
 import os
 import lxml.etree as ET
+from os.path import join
 
 """ need to duplicate all backslashes:"""
 # inputpath = "D:\\temp\\"
@@ -7,9 +8,11 @@ import lxml.etree as ET
 # outpath = "D:\\output"
 """Or prefix the string with r (to produce a raw string):"""
 """Full Path, the following is just an example"""
-inputpath = r"C:\Users\..\..\..\DistantReading\xml_converter\XML\\"
-xsltfile = r"C:\Users\..\..\..\DistantReading\xml_converter\workMetaGenerierung.xsl"
-outpath = r"C:\Users\..\..\..\DistantReading\xml_converter\grid_output_py_xslt"
+
+inputpath = join("", "XML", "")
+xsltfile = join("", "workMetaGenerierung.xsl")
+outpath = join("", "grid_output_py_xslt", "")
+
 for dirpath, dirnames, filenames in os.walk(inputpath):
   for filename in filenames:
     if filename.endswith(('.xml', '.txt')):
@@ -18,5 +21,5 @@ for dirpath, dirnames, filenames in os.walk(inputpath):
       transform = ET.XSLT(xslt)
       newdom = transform(dom)
       infile = (ET.tostring(newdom, pretty_print=True, encoding="unicode"))
-      outfile = open(outpath + "\\" + filename, 'a')
+      outfile = open(join(outpath, filename), 'w')
       outfile.write(infile)
