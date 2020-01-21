@@ -2,14 +2,11 @@
   <generic>
     <provided>
       <title>Weisse Sclaven oder die Leiden des Volkes</title>
-      <format>text/tg.work+xml</format>
+      <format>text/xml</format>
     </provided>
     <generated/>
   </generic>
-  <work>
-    <agent role="author" id="gnd:11739467X">Willkomm, Ernst Adolf</agent>
-    <dateOfCreation notBefore="1845" notAfter="1845">1845</dateOfCreation>
-    <temporal>T1</temporal>
-    <genre>prose</genre>
-  </work>
+  <item>
+    <rightsHolder id="">ELTeC conversion</rightsHolder>
+  </item>
 </object>

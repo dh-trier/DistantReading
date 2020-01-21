@@ -5,44 +5,26 @@
     version="2.0">
     <xsl:output indent="yes"></xsl:output>
     <xsl:template match="/">
-       <object xmlns="http://textgrid.info/namespaces/metadata/core/2010"
+        <object xmlns="http://textgrid.info/namespaces/metadata/core/2010"
             xmlns:tg="http://textgrid.info/relation-ns#"
             xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
         <generic>
             <provided>
                 <title>
-                    <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:bibl/tei:title/text()"/>
+                    <xsl:apply-templates select="tei:TEI/@xml:id"></xsl:apply-templates>  
                 </title>
-                <format>text/tg.work+xml</format>
+                <format>text/tg.aggregation+xml</format>  
             </provided>
             <generated></generated>
         </generic>
-        <work>
-            <agent role="author">
-                <xsl:apply-templates select="tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:titleStmt[1]/tei:author[1]/@ref"></xsl:apply-templates>
-                <xsl:value-of select="tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:sourceDesc[1]/tei:bibl[1]/tei:author[1]/text()"/>
-            </agent>
-            <dateOfCreation>
-                <xsl:attribute name="notBefore">
-                    <xsl:value-of select="tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:sourceDesc[1]/tei:bibl[1]/tei:date[1]/text()"/>
-                </xsl:attribute>
-                <xsl:attribute name="notAfter">
-                    <xsl:value-of select="tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:sourceDesc[1]/tei:bibl[1]/tei:date[1]/text()"/>
-                </xsl:attribute>
-                <xsl:value-of select="tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:sourceDesc[1]/tei:bibl[1]/tei:date[1]/text()"/>
-            </dateOfCreation>
-            <temporal>
-                <xsl:value-of select="tei:TEI/tei:teiHeader[1]/tei:profileDesc[1]/tei:textDesc[1]/*[namespace-uri()='http://distantreading.net/eltec/ns' and local-name()='timeSlot'][1]/@key"/>
-            </temporal>
-            <genre>prose</genre>
-        </work>
+        <item>
+            <rightsHolder id="">
+                <xsl:value-of select="/tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:titleStmt[1]/tei:respStmt[1]/tei:resp"/>  
+            </rightsHolder>    
+        </item>
         </object>
     </xsl:template>
-    <xsl:template match="tei:author/@ref">
-        <xsl:variable name="ii" select="substring-after(current(), 'gnd/')"/>
-        <xsl:variable name="i">gnd:</xsl:variable>
-            <xsl:attribute name="id">
-                <xsl:value-of select="concat($i, $ii)"/>
-            </xsl:attribute>
+    <xsl:template match="tei:TEI/@xml:id">
+        <xsl:value-of select="substring(., 1, 3)"></xsl:value-of>
     </xsl:template>
 </xsl:stylesheet>

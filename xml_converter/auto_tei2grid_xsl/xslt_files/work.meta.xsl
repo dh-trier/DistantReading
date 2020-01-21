@@ -19,7 +19,9 @@
         </generic>
         <work>
             <agent role="author">
-                <xsl:apply-templates select="tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:titleStmt[1]/tei:author[1]/@ref"></xsl:apply-templates>
+                <xsl:attribute name="id">
+                    <xsl:value-of select="/tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:titleStmt[1]/tei:author[1]/@ref"/>  
+                </xsl:attribute>
                 <xsl:value-of select="tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:sourceDesc[1]/tei:bibl[1]/tei:author[1]/text()"/>
             </agent>
             <dateOfCreation>
@@ -37,12 +39,5 @@
             <genre>prose</genre>
         </work>
         </object>
-    </xsl:template>
-    <xsl:template match="tei:author/@ref">
-        <xsl:variable name="ii" select="substring-after(current(), 'gnd/')"/>
-        <xsl:variable name="i">gnd:</xsl:variable>
-            <xsl:attribute name="id">
-                <xsl:value-of select="concat($i, $ii)"/>
-            </xsl:attribute>
     </xsl:template>
 </xsl:stylesheet>

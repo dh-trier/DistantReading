@@ -2,14 +2,11 @@
   <generic>
     <provided>
       <title>Mathias Bichler</title>
-      <format>text/tg.work+xml</format>
+      <format>text/xml</format>
     </provided>
     <generated/>
   </generic>
-  <work>
-    <agent role="author" id="gnd:118520555">Christ, Lena</agent>
-    <dateOfCreation notBefore="1914" notAfter="1914">1914</dateOfCreation>
-    <temporal>T4</temporal>
-    <genre>prose</genre>
-  </work>
+  <item>
+    <rightsHolder id="">ELTeC conversion</rightsHolder>
+  </item>
 </object>

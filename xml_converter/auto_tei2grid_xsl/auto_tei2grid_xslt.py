@@ -2,13 +2,14 @@ import os
 import itertools
 import lxml.etree as ET
 import re
+from os.path import join
+import glob
 
 
-
-
-inpath =  r"C:\Users\Chou Chou\Desktop\Schöch_Projekt Seminar Digital Humanities\GuZhang\Testdataset\XML\\"
+wdir = ""
+#inpath =  os.path.join("home", "christof", "repos", "dh-trier", "Distant-Reading", "Testdataset", "XML", "")
+inpath = join(wdir, "..", "..", "Testdataset", "XML", "DEU", "")
 outpath = os.path.join("", "Testoutput", "")
-
 xsltpath = os.path.join("", "xslt_files", "")
 
 
@@ -16,6 +17,7 @@ xsltpath = os.path.join("", "xslt_files", "")
 for dirpath, dirnames, filenames in os.walk(inpath):
     for filename in filenames:
         basename = filename.split(".")[0] # Removes [.xml] filename extension
+        print(basename)
         prefix = basename.split("_")[0] # Removes [_author name] in the filename, e.g. DEU001_Willkommen ---> DEU001
         
         lang = "".join(itertools.takewhile(str.isalpha, prefix)) # Takes only characters in identifiers, e.g. DEU001 ---> DEU

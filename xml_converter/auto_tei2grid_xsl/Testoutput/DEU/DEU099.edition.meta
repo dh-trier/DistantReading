@@ -1,15 +1,26 @@
 <object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
   <generic>
     <provided>
-      <title>Mathias Bichler</title>
-      <format>text/tg.work+xml</format>
+      <title>Mathias Bichler </title>
+      <format>text/tg.edition+tg.aggregation+xml</format>
+      <notes/>
     </provided>
     <generated/>
   </generic>
-  <work>
-    <agent role="author" id="gnd:118520555">Christ, Lena</agent>
-    <dateOfCreation notBefore="1914" notAfter="1914">1914</dateOfCreation>
-    <temporal>T4</temporal>
-    <genre>prose</genre>
-  </work>
+  <edition>
+    <isEditionOf>DEU/DEU099.work</isEditionOf>
+    <agent role="author" id="">Christ, Lena</agent>
+    <source>
+      <bibliographicCitation>
+        <author id="gnd:118520555">Christ, Lena</author>
+        <editionTitle>Mathias Bichler : ELTeC ausgabe</editionTitle>
+        <placeOfPublication>
+          <value>Trier</value>
+        </placeOfPublication>
+        <dateOfPublication>2010</dateOfPublication>
+        <spage/>
+      </bibliographicCitation>
+    </source>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </edition>
 </object>
