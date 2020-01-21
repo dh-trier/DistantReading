@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://distantreading.github.io/Schema/eltec-0.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="HU07264" xml:lang="hu-Latn">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="HUN07264" xml:lang="hu-Latn">
   <teiHeader>
     <fileDesc>
       <titleStmt>
