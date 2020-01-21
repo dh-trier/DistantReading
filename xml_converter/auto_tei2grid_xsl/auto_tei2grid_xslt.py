@@ -8,7 +8,7 @@ import glob
 
 wdir = ""
 #inpath =  os.path.join("home", "christof", "repos", "dh-trier", "Distant-Reading", "Testdataset", "XML", "")
-inpath = join(wdir, "..", "..", "Testdataset", "XML", "DEU", "")
+inpath = join(wdir, "..", "..", "Testdataset", "XML", "")
 outpath = os.path.join("", "Testoutput", "")
 xsltpath = os.path.join("", "xslt_files", "")
 

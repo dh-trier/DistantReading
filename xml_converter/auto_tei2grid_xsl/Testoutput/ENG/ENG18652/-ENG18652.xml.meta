@@ -2,14 +2,11 @@
   <generic>
     <provided>
       <title>Alice's Adventures in Wonderland, by Lewis Carroll</title>
-      <format>text/tg.work+xml</format>
+      <format>text/xml</format>
     </provided>
     <generated/>
   </generic>
-  <work>
-    <agent role="author"/>
-    <dateOfCreation notBefore="" notAfter=""/>
-    <temporal>T2</temporal>
-    <genre>prose</genre>
-  </work>
+  <item>
+    <rightsHolder id="">ELTeC conversion</rightsHolder>
+  </item>
 </object>
