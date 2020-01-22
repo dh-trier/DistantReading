@@ -8,7 +8,7 @@ import glob
 
 wdir = ""
 #inpath =  os.path.join("home", "christof", "repos", "dh-trier", "Distant-Reading", "Testdataset", "XML", "")
-inpath = join(wdir, "..", "..", "Testdataset", "XML", "DEU", "")
+inpath = join(wdir, "..", "..", "Testdataset", "XML", "")
 outpath = os.path.join("", "Testoutput", "")
 xsltpath = os.path.join("", "xslt_files", "")
 
@@ -41,6 +41,7 @@ for dirpath, dirnames, filenames in os.walk(inpath):
                     raise
 
         for outfile in [aggr_file, aggr_meta_file, edit_file, edit_meta_file, work_file, work_meta_file, xml_file, xml_meta_file]:
+            print("=== target file for transformation===")
             print(outfile)
             suffix = outfile.split(".")[1:3]
             suffix = ".".join(suffix)
@@ -51,9 +52,11 @@ for dirpath, dirnames, filenames in os.walk(inpath):
             for dirpath, dirnames, xslt_filenames in os.walk(xsltpath):
                 for xslt_filename in xslt_filenames:
                     xslt_basename = re.sub(r'(.xsl)',"", xslt_filename)
-                    print("===xsl basename")
-                    print(xslt_basename)
+                    # print("===xsl basename")
+                    # print(xslt_basename)
                     if suffix == xslt_basename:
+                        print("===xsl basename")
+                        print(xslt_basename)
                         print("Here begins the transformation")
 
                         dom = ET.parse(inpath + filename)
@@ -61,6 +64,7 @@ for dirpath, dirnames, filenames in os.walk(inpath):
                         transform = ET.XSLT(xslt)
                         newdom = transform(dom)
                         infile = (ET.tostring(newdom, pretty_print=True, encoding="unicode"))
-                        outfile = open(outfile, 'w')
+                        outfile = open(outfile, 'w', encoding="utf-8")
                         outfile.write(infile)
+                        print("Here ends the Transformation and next...")
                         break
