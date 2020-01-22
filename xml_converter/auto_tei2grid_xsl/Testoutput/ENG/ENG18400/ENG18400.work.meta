@@ -7,7 +7,7 @@
     <generated/>
   </generic>
   <work>
-    <agent role="author" id="gnd:">Frances Trollope</agent>
+    <agent role="author" id="viaf:34551336">Frances Trollope</agent>
     <dateOfCreation notBefore="1840" notAfter="1840">1840</dateOfCreation>
     <temporal>T1</temporal>
     <genre>prose</genre>

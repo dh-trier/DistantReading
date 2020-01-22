@@ -7,7 +7,7 @@
     <generated/>
   </generic>
   <work>
-    <agent role="author"/>
+    <agent role="author" id="viaf:54148778"/>
     <dateOfCreation notBefore="" notAfter=""/>
     <temporal>T3</temporal>
     <genre>prose</genre>

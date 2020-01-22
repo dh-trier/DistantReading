@@ -7,9 +7,8 @@
     <generated/>
   </generic>
   <work>
-    <agent role="author" id="gnd:">Nesbit, E. (Edith),
-                        1858-1924</agent>
-    <dateOfCreation notBefore="" notAfter=""/>
+    <agent role="author" id="viaf:7394811">Nesbit, E. (Edith), 1858-1924</agent>
+    <dateOfCreation notBefore="(unknown)" notAfter="(unknown)">(unknown)</dateOfCreation>
     <temporal>T4</temporal>
     <genre>prose</genre>
   </work>

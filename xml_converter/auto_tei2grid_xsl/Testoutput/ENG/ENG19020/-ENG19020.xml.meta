@@ -2,15 +2,11 @@
   <generic>
     <provided>
       <title>The Red House : VWWP edition </title>
-      <format>text/tg.work+xml</format>
+      <format>text/xml</format>
     </provided>
     <generated/>
   </generic>
-  <work>
-    <agent role="author" id="gnd:">Nesbit, E. (Edith),
-                        1858-1924</agent>
-    <dateOfCreation notBefore="" notAfter=""/>
-    <temporal>T4</temporal>
-    <genre>prose</genre>
-  </work>
+  <item>
+    <rightsHolder id="">Transcribed and encoded by</rightsHolder>
+  </item>
 </object>
