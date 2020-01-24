@@ -75,7 +75,7 @@
                 </profileDesc>
           </teiHeader>  
             <text>
-                <xsl:copy-of select="/tei:TEI/tei:text"></xsl:copy-of>
+                <xsl:copy-of select="/tei:TEI/tei:text/tei:body"></xsl:copy-of>
             </text>  
         </TEI>
     </xsl:template>
