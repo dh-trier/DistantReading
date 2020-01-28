@@ -11,7 +11,7 @@
             <generic>
                 <provided>
                     <title>
-                        <xsl:apply-templates select="/tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:titleStmt[1]/tei:title[1]"></xsl:apply-templates>
+                        <xsl:apply-templates select="/tei:TEI/tei:teiHeader[1]/tei:fileDesc[1]/tei:sourceDesc[1]/tei:bibl[2]/tei:title[1]"></xsl:apply-templates>  
                     </title>  
                     <format>text/tg.edition+tg.aggregation+xml</format>
                     <notes></notes>  <!-- leer lassen, da nicht genutzt -->

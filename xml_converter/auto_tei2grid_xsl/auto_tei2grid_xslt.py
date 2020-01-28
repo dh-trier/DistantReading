@@ -44,23 +44,24 @@ for dirpath, dirnames, filenames in os.walk(inpath):
             print(outfile)
             suffix = outfile.split(".")[1:3]
             suffix = ".".join(suffix)
-            print("===suffix===")
-            print(suffix)
-
 
             for dirpath, dirnames, xslt_filenames in os.walk(xsltpath):
                 for xslt_filename in xslt_filenames:
                     xslt_basename = re.sub(r'(.xsl)',"", xslt_filename)
-                    print("===xsl basename")
-                    print(xslt_basename)
+
                     if suffix == xslt_basename:
                         print("Here begins the transformation")
+                        print("Transforming...")
+                        print("taret= ", suffix)
+                        print("using xslt= ", xslt_basename)
 
                         dom = ET.parse(inpath + filename)
                         xslt = ET.parse(xsltpath + xslt_filename)
                         transform = ET.XSLT(xslt)
                         newdom = transform(dom)
-                        infile = (ET.tostring(newdom, pretty_print=True, encoding="unicode"))
-                        outfile = open(outfile, 'w')
-                        outfile.write(infile)
+                        outfile = open(outfile, 'w', encoding="utf-8")
+                        outfile.write('<?xml version="1.0" encoding="UTF-8"?>\n') # writes 'xml declaration' in output
+                        if suffix != "work": # 'work' files only contain 'xml declaration'
+                            outfile.write(ET.tostring(newdom, pretty_print=True, encoding="unicode"))
+                        print("Here ends the Transformation and next...")
                         break
