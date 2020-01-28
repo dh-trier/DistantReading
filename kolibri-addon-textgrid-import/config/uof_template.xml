@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<mets OBJID="" PROFILE="SUB" TYPE="kopal Submission Information Package"
+	xmlns="http://www.loc.gov/METS/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:lmerFile="http://www.ddb.de/LMERfile" xmlns:lmerObject="http://www.ddb.de/LMERobject"
+	xmlns:lmerProcess="http://www.ddb.de/LMERprocess" xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.ddb.de/LMERfile http://www.ddb.de/standards/lmer/lmer-file.xsd http://www.ddb.de/LMERobject http://www.ddb.de/standards/lmer/lmer-object.xsd http://www.ddb.de/LMERprocess http://www.ddb.de/standards/lmer/lmer-process.xsd http://purl.org/dc/elements/1.1/ http://dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd">
+
+	<metsHdr CREATEDATE="2006-03-17T16:27:34" RECORDSTATUS="TEST">
+		<agent ROLE="ARCHIVIST" TYPE="ORGANIZATION">
+			<name>*** your organisation's name here ***</name>
+			<note>*** any notes in here ***</note>
+		</agent>
+	</metsHdr>
+
+	<amdSec ID="AMDSEC">
+		<techMD ID="TECHMD-OBJECT">
+			<mdWrap ID="TECHMD-OBJECT-MDWRAP" LABEL="LMERobject" MDTYPE="OTHER"
+				MIMETYPE="text/xml" OTHERMDTYPE="lmerObject">
+				<xmlData>
+					<lmerObject:metadataRecordCreator>*** depends on the used metadata
+						format ***</lmerObject:metadataRecordCreator>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+
+	<fileSec>
+		<fileGrp ADMID="TECHMD-OBJECT" ID="ASSET">
+		</fileGrp>
+	</fileSec>
+
+	<structMap TYPE="ASSET">
+		<div LABEL="File list" ORDER="1" TYPE="ASSET">
+		</div>
+	</structMap>
+</mets>

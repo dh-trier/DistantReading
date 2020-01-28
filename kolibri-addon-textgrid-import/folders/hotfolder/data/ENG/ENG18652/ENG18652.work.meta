@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
+  <generic>
+    <provided>
+      <title>Alice's Adventures in Wonderland, by Lewis Carroll</title>
+      <format>text/tg.work+xml</format>
+    </provided>
+    <generated/>
+  </generic>
+  <work>
+    <agent role="author" id="viaf:66462036"/>
+    <dateOfCreation notBefore="2006" notAfter="2006">2006</dateOfCreation>
+    <temporal>T2</temporal>
+    <genre>prose</genre>
+  </work>
+</object>
