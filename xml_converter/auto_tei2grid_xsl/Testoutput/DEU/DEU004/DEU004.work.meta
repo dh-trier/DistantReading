@@ -9,7 +9,7 @@
   </generic>
   <work>
     <agent role="author" id="gnd:118590901">Otto, Louise</agent>
-    <dateOfCreation notBefore="2010" notAfter="2010">2010</dateOfCreation>
+    <dateOfCreation notBefore="" notAfter="">2010</dateOfCreation>
     <temporal>T1</temporal>
     <genre>prose</genre>
   </work>
