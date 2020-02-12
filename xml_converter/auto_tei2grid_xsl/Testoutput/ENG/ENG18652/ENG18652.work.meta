@@ -9,7 +9,7 @@
   </generic>
   <work>
     <agent role="author" id="viaf:66462036"/>
-    <dateOfCreation notBefore="2006" notAfter="2006">2006</dateOfCreation>
+    <dateOfCreation notBefore="" notAfter="">2006</dateOfCreation>
     <temporal>T2</temporal>
     <genre>prose</genre>
   </work>
