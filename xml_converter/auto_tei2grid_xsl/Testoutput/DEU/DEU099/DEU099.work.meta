@@ -9,7 +9,7 @@
   </generic>
   <work>
     <agent role="author" id="gnd:118520555">Christ, Lena</agent>
-    <dateOfCreation notBefore="2010" notAfter="2010">2010</dateOfCreation>
+    <dateOfCreation notBefore="" notAfter="">2010</dateOfCreation>
     <temporal>T4</temporal>
     <genre>prose</genre>
   </work>
