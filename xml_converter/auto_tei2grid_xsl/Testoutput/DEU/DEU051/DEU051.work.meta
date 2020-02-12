@@ -9,7 +9,7 @@
   </generic>
   <work>
     <agent role="author" id="gnd:118534262">Fontane, Theodor</agent>
-    <dateOfCreation notBefore="2010" notAfter="2010">2010</dateOfCreation>
+    <dateOfCreation notBefore="" notAfter="">2010</dateOfCreation>
     <temporal>T3</temporal>
     <genre>prose</genre>
   </work>
