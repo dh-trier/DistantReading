@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:tns="http://textgrid.info/namespaces/metadata/core/2010">
-  <rdf:Description rdf:about="DEU051.edition">
+  <rdf:Description rdf:about="DEU/DEU051.edition">
     <ore:aggregates rdf:resource="DEU051/-DEU051.xml"/>
   </rdf:Description>
 </rdf:RDF>
