@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
+  <generic>
+    <provided>
+      <title>Modestie et vanité, roman (La décadence latine, éthopée, XVI)</title>
+      <format>text/tg.edition+tg.aggregation+xml</format>
+      <notes/>
+    </provided>
+    <generated/>
+  </generic>
+  <edition>
+    <isEditionOf>FRA/FRA001.work</isEditionOf>
+    <agent role="author" id="">Peladan, Joséphin [Joseph-Aimé Peladan]</agent>
+    <source>
+      <bibliographicCitation>
+        <author id="gnd:11739467X">Peladan, Joséphin [Joseph-Aimé Peladan]</author>
+        <editionTitle>Modestie et vanité, roman (La décadence latine, éthopée, XVI) : ELTeC Edition</editionTitle>
+        <placeOfPublication>
+          <value>Trier</value>
+        </placeOfPublication>
+        <dateOfPublication>2010</dateOfPublication>
+        <spage/>
+      </bibliographicCitation>
+    </source>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </edition>
+</object>
