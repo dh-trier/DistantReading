@@ -57,7 +57,10 @@ def read_template(templateid):
         return template
 
 
-def save_template(template, templatefile): 
+def save_template(template, language, templatefile): 
+    outfolder = join("output", language)
+    if not os.path.exists(outfolder): 
+        os.makedirs(outfolder)
     with open(join("output", templatefile), "w", encoding="utf8") as outfile: 
         outfile.write(template)
 
@@ -71,7 +74,7 @@ def fill_aggregation_meta(language):
     template = read_template(join(templatefile))
     template = re.sub("LLL", language, template)
     templatefile = re.sub("LLL", language, templatefile)
-    save_template(template, templatefile)
+    save_template(template, language, templatefile)
     
 
 # TODO: "LLL.aggregation"
@@ -98,8 +101,9 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
     # Adapt the templatefile's filename
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
+    templatefile = join(language, templatefile)
     # Save the individual, filled-in templatefile
-    save_template(template, templatefile)
+    save_template(template, language, templatefile)
 
 
 
