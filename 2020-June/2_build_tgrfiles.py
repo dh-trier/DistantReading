@@ -77,7 +77,7 @@ def fill_aggregation_meta(language):
     save_template(template, language, templatefile)
     
 
-# TODO: "LLL.aggregation"
+# TODO: templatefile = "LLL.aggregation"
 
 
 
@@ -107,15 +107,15 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
 
 
 
-# TODO: LLL/LLLNNN.edition
+# TODO: templatefile = "LLL/LLLNNN.edition"
 
-# TODO: LLL/LLLNNN/-LLLNNN.xml
+# TODO: templatefile = "LLL/LLLNNN/-LLLNNN.xml"
 
-# TODO: LLL/LLLNNN/-LLLNNN.xml.meta
+# TODO: templatefile = "LLL/LLLNNN/-LLLNNN.xml.meta"
 
-# TODO: LLL/LLLNNN/LLLNNN.work
+# TODO: templatefile = "LLL/LLLNNN/LLLNNN.work"
 
-# TODO: LLL/LLLNNN/LLLNNN.work.meta
+# TODO: templatefile = "LLL/LLLNNN/LLLNNN.work.meta"
 
 
 
@@ -128,12 +128,18 @@ def main(collection, level):
     metadata = read_metadatafile(metadatafile)
     xmlfiles = join("input", collection, level, "*.xml") 
     fill_aggregation_meta(language)
+    # TODO: "fill_LLL_aggregation"
     counter  = 0
     for xmlfile in glob.glob(xmlfiles):
         counter +=1
         counter = "{:03}".format(counter)
         print(counter, basename(xmlfile))
         fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata)
+        # TODO: fill_LLL/LLLNNN.edition
+        # TODO: fill_LLL/LLLNNN__LLLNNN_xml
+        # TODO: fill_LLL_LLLNNN__LLLNNN_xml_meta
+        # TODO: fill_LLL_LLLNNN_LLLNNN_work
+        # TODO: fill_LLL_LLLNNN_LLLNNN_work_meta
         counter = int(counter)
 
 main(collection, level)
