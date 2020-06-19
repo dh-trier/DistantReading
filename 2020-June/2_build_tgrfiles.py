@@ -219,6 +219,21 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     reprints = metadata.loc[identifier, "reprints"]
     timeslot = metadata.loc[identifier, "timeslot"]
     # TODO extract gnd metadata
+    authorid = metadata.loc[identifier, "authorid"]
+    #print(authorid)
+    if re.search("gnd", authorid) or re.search("viaf", authorid):
+        try:
+            authorid = re.sub(r' wikidata(.*?)$', "", authorid)
+            #print(authorid)
+        except TypeError:
+            authorid = str(authorid)
+    else:
+        authorid = ""
+    #print(authorid)
+    if not authorid == "":
+        template = re.sub("#xxx#", authorid, template)
+    else:
+        template = re.sub(' id="#xxx#"', "", template)
     # Fill information into the template
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
@@ -227,7 +242,7 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     template = re.sub("#size#", size, template)
     template = re.sub("#reprintCount#", str(reprints), template)
     template = re.sub("#timeSlot#", timeslot, template)
-    # TODO fill in gnd metadata or delete id
+
     # Adapt the templatefile's filename
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
@@ -266,6 +281,5 @@ def main(collection, level):
         # print(file)
         aggregation_files_list.append(basename(file))
     fill_LLL_aggregation(language, aggregation_files_list)
-
 
 main(collection, level)
