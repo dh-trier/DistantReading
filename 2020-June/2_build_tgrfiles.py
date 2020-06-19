@@ -205,11 +205,19 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     author = metadata.loc[identifier, "author"]
     title = metadata.loc[identifier, "title"]
     firstedition = metadata.loc[identifier, "firstedition"]
+    gender = metadata.loc[identifier, "gender"]
+    size = metadata.loc[identifier, "size"]
+    reprints = metadata.loc[identifier, "reprints"]
+    timeslot = metadata.loc[identifier, "timeslot"]
     # TODO extract gnd metadata
     # Fill information into the template
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
     template = re.sub("#firstedition#", str(firstedition), template)
+    template = re.sub("#authorGender#", gender, template)
+    template = re.sub("#size#", size, template)
+    template = re.sub("#reprintCount#", reprints, template)
+    template = re.sub("#timeSlot#", timeslot, template)
     # TODO fill in gnd metadata or delete id
     # Adapt the templatefile's filename
     templatefile = re.sub("LLL", language, templatefile)
