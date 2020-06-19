@@ -132,6 +132,7 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
     author = metadata.loc[identifier, "author"]
     title = metadata.loc[identifier, "title"]
     firstedition = metadata.loc[identifier, "firstedition"]
+    printedition = metadata.loc[identifier, "printedition"]
     authorid = metadata.loc[identifier, "authorid"]
     if re.search("gnd", authorid) or re.search("viaf", authorid):
         try:
@@ -145,7 +146,10 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
     template = re.sub("NNN", counter, template)
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
-    template = re.sub("#firstedition#", str(firstedition), template)
+    if type(firstedition)== int:
+        template = re.sub("#edition#", str(firstedition), template)
+    else:
+        template = re.sub("#edition#", str(printedition), template)
     if not authorid == "":
         template = re.sub("#xxx#", authorid, template)
     else:
