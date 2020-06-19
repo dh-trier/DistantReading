@@ -10,10 +10,10 @@
   </generic>
   <edition>
     <isEditionOf>LLL/LLLNNN.work</isEditionOf>
-    <agent role="author" id="">#author#</agent>
+    <agent role="author" id="#xxx#">#author#</agent>
     <source>
       <bibliographicCitation>
-        <author id="gnd:11739467X">#author#</author>
+        <author id="#xxx#">#author#</author>
         <editionTitle>#title# : ELTeC Edition</editionTitle>
         <placeOfPublication>
           <value>Trier</value>
