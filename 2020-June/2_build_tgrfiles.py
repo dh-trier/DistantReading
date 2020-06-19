@@ -125,7 +125,10 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
     template = read_template(join("LLL", templatefile))
     template = re.sub("LLL", language, template)
     # Find information for the template
-    identifier, rest = basename(xmlfile).split("_")
+    if "_" in basename(xmlfile):
+        identifier= basename(xmlfile).split("_")[0]
+    else:
+        identifier= basename(xmlfile).split(".")[0]
     author = metadata.loc[identifier, "author"]
     title = metadata.loc[identifier, "title"]
     firstedition = metadata.loc[identifier, "firstedition"]
@@ -176,7 +179,10 @@ def fill_LLL_LLLNNN_xml_meta(xmlfile, counter, language, metadata):
     templatefile = "-LLLNNN.xml.meta"
     template = read_template(join("LLL", "LLLNNN", templatefile))
     # Find information for the template
-    identifier, rest = basename(xmlfile).split("_")
+    if "_" in basename(xmlfile):
+        identifier= basename(xmlfile).split("_")[0]
+    else:
+        identifier= basename(xmlfile).split(".")[0]
     title = metadata.loc[identifier, "title"]
     # Fill information into the template
     template = re.sub("#title#", title, template)
@@ -201,7 +207,10 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     templatefile = "LLLNNN.work.meta"
     template = read_template(join("LLL", "LLLNNN", templatefile))
     # Find information for the template
-    identifier, rest = basename(xmlfile).split("_")
+    if "_" in basename(xmlfile):
+        identifier= basename(xmlfile).split("_")[0]
+    else:
+        identifier= basename(xmlfile).split(".")[0]
     author = metadata.loc[identifier, "author"]
     title = metadata.loc[identifier, "title"]
     firstedition = metadata.loc[identifier, "firstedition"]
@@ -216,7 +225,7 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     template = re.sub("#firstedition#", str(firstedition), template)
     template = re.sub("#authorGender#", gender, template)
     template = re.sub("#size#", size, template)
-    template = re.sub("#reprintCount#", reprints, template)
+    template = re.sub("#reprintCount#", str(reprints), template)
     template = re.sub("#timeSlot#", timeslot, template)
     # TODO fill in gnd metadata or delete id
     # Adapt the templatefile's filename
