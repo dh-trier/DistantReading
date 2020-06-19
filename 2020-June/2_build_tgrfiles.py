@@ -27,7 +27,7 @@ from bs4 import BeautifulSoup as soup
 
 # === Files and folders ===
 
-collection = "ELTeC-fra"
+collection = "ELTeC-slv"
 level = "level1"
 
 
@@ -132,12 +132,24 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
     author = metadata.loc[identifier, "author"]
     title = metadata.loc[identifier, "title"]
     firstedition = metadata.loc[identifier, "firstedition"]
+    authorid = metadata.loc[identifier, "authorid"]
+    if re.search("gnd", authorid) or re.search("viaf", authorid):
+        try:
+            authorid = re.sub(r' wikidata(.*?)$', "", authorid)
+        except TypeError:
+            authorid = str(authorid)
+    else:
+        authorid = ""
     # Fill information into the template
     template = re.sub("LLL", language, template)
     template = re.sub("NNN", counter, template)
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
     template = re.sub("#firstedition#", str(firstedition), template)
+    if not authorid == "":
+        template = re.sub("#xxx#", authorid, template)
+    else:
+        template = re.sub(' id="#xxx#"', "", template)
     # Adapt the templatefile's filename
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
@@ -218,22 +230,15 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     size = metadata.loc[identifier, "size"]
     reprints = metadata.loc[identifier, "reprints"]
     timeslot = metadata.loc[identifier, "timeslot"]
-    # TODO extract gnd metadata
     authorid = metadata.loc[identifier, "authorid"]
-    #print(authorid)
     if re.search("gnd", authorid) or re.search("viaf", authorid):
         try:
             authorid = re.sub(r' wikidata(.*?)$', "", authorid)
-            #print(authorid)
         except TypeError:
             authorid = str(authorid)
     else:
         authorid = ""
-    #print(authorid)
-    if not authorid == "":
-        template = re.sub("#xxx#", authorid, template)
-    else:
-        template = re.sub(' id="#xxx#"', "", template)
+
     # Fill information into the template
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
@@ -242,7 +247,10 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     template = re.sub("#size#", size, template)
     template = re.sub("#reprintCount#", str(reprints), template)
     template = re.sub("#timeSlot#", timeslot, template)
-
+    if not authorid == "":
+        template = re.sub("#xxx#", authorid, template)
+    else:
+        template = re.sub(' id="#xxx#"', "", template)
     # Adapt the templatefile's filename
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
@@ -259,10 +267,8 @@ def main(collection, level):
     metadata = read_metadatafile(metadatafile)
     xmlfiles = join("input", collection, level, "*.xml")
     fill_aggregation_meta(language)
-    # TODO: "fill_LLL_aggregation" --> ich
     counter = 0
     for xmlfile in glob.glob(xmlfiles):
-        # print(xmlfile)
         counter += 1
         counter = "{:03}".format(counter)
         print(counter, basename(xmlfile))
@@ -278,7 +284,6 @@ def main(collection, level):
     aggregation_files_list = []
     aggregation_files_path = join("output", language, "*.edition")
     for file in glob.glob(aggregation_files_path):
-        # print(file)
         aggregation_files_list.append(basename(file))
     fill_LLL_aggregation(language, aggregation_files_list)
 
