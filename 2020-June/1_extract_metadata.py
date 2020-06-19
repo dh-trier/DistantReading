@@ -48,9 +48,10 @@ xpaths = {"xmlid" : "//tei:TEI/@xml:id",
           "timeslot" : "//tei:textDesc/eltec:timeSlot/@key",
           "firstedition" : "//tei:bibl[@type='firstEdition']/tei:date/text()",
           "digitalSource" : "//tei:bibl[@type='digitalSource']/tei:publisher/text()",
-          "language" : "//tei:langUsage/tei:language/@ident"}
+          "language" : "//tei:langUsage/tei:language/@ident",
+          "authorid" : "//tei:titleStmt/tei:author/@ref"}
 
-ordering = ["filename", "xmlid", "author", "title", "firstedition", "language", "gender", "size", "reprints", "timeslot"]
+ordering = ["filename", "xmlid", "author", "title", "firstedition", "language", "gender", "size", "reprints", "timeslot", "authorid"]
 
 sorting = ["firstedition", True] # column, ascending?
 
