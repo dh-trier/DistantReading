@@ -8,7 +8,7 @@
     <generated/>
   </generic>
   <work>
-    <agent role="author" id="gnd:11739467X">#author#</agent>
+    <agent role="author" id="#xxx#">#author#</agent>
     <dateOfCreation notBefore="" notAfter="">#firstedition#</dateOfCreation>
     <temporal>
 	<id type="/profileDesc/textClass/timeSlot@key">timeSlot</id>
