@@ -9,7 +9,7 @@
   </generic>
   <work>
     <agent role="author" id="#xxx#">#author#</agent>
-    <dateOfCreation notBefore="" notAfter="">#firstedition#</dateOfCreation>
+    <dateOfCreation notBefore="" notAfter="">#edition#</dateOfCreation>
     <temporal>
 	<id type="/profileDesc/textClass/timeSlot@key">timeSlot</id>
 	<value>#timeSlot#</value></temporal>
