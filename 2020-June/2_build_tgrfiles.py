@@ -98,7 +98,6 @@ def fill_LLL_aggregation(language, aggregation_list):
     templatefile = re.sub("LLL", language, templatefile)
     template = re.sub('<rdf:Description rdf:about="-LLL.aggregation">',
                       '<rdf:Description rdf:about="-{}.aggregation">'.format(language), template)
-    # print(template)
 
     # parses the file as bs4-object and fills in each rdf_resource, i.e. edition used
     template = soup(template, "xml")
@@ -111,7 +110,6 @@ def fill_LLL_aggregation(language, aggregation_list):
         rdf_tag.append(new_tag)
 
     template = template.prettify()
-    # print(template)
     # save file
     save_template(str(template), language, templatefile, 0)
 
@@ -230,6 +228,7 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     author = metadata.loc[identifier, "author"]
     title = metadata.loc[identifier, "title"]
     firstedition = metadata.loc[identifier, "firstedition"]
+    printedition = metadata.loc[identifier, "printedition"]
     gender = metadata.loc[identifier, "gender"]
     size = metadata.loc[identifier, "size"]
     reprints = metadata.loc[identifier, "reprints"]
@@ -246,7 +245,10 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
     # Fill information into the template
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
-    template = re.sub("#firstedition#", str(firstedition), template)
+    if type(firstedition) == int:
+        template = re.sub("#edition#", str(firstedition), template)
+    else:
+        template = re.sub("#edition#", str(printedition), template)
     template = re.sub("#authorGender#", gender, template)
     template = re.sub("#size#", size, template)
     template = re.sub("#reprintCount#", str(reprints), template)
