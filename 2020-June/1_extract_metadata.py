@@ -34,7 +34,7 @@ from collections import Counter
 # === Files and folders ===
 
 inputdir = join("input", "")
-collection = "ELTeC-slv"
+collection = "ELTeC-ita"
 level = "level1"
 
 
@@ -111,12 +111,19 @@ def get_authordata(xml):
         authordata = xml.xpath("//tei:titleStmt/tei:author/text()",
                                namespaces=namespaces)[0]
         author = re.search("(.*?) \(", authordata).group(1)
-        birth = re.search("\((\d\d\d\d)", authordata).group(1)
-        death = re.search("(\d\d\d\d)\)", authordata).group(1)
+        try:
+            birth = re.search("\((\d\d\d\d)", authordata).group(1)
+        except:
+            birth = "NA"
+        try:
+            death = re.search("(\d\d\d\d)\)", authordata).group(1)
+        except:
+            death = "NA"
     except: 
         author = "NA"
         birth = "NA"
-        death = "NA"        
+        death = "NA"
+    #print(author, birth, death)
     return author,birth,death
 
 
@@ -145,7 +152,7 @@ def main(inputdir, collection, level, xpaths, ordering, sorting):
     metadatafile = join("metadata", collection+".tsv")
     allmetadata = []
     counter = 0
-    for teiFile in glob.glob(teiFolder): 
+    for teiFile in glob.glob(teiFolder):
         filename,ext = basename(teiFile).split(".")
         print(filename)
         try: 
