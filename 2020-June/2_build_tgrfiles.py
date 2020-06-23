@@ -27,8 +27,8 @@ from bs4 import BeautifulSoup as soup
 
 # === Files and folders ===
 
-collection = "ELTeC-ita"
-level = "level1"
+collection = "ELTeC-deu"
+level = "level0"
 
 
 # === Helper functions ===
@@ -132,6 +132,7 @@ def get_metadata_information(xmlfile, metadata):
         testid = re.search("\d+", basename(xmlfile).split("_")[0]).group(0)
         for row in metadata.index:
             if re.search(testid, row):
+                print("Please check id for validation")
                 identifier = row
                 author = metadata.loc[identifier, "author"]
 
@@ -147,6 +148,14 @@ def get_metadata_information(xmlfile, metadata):
             authorid = re.sub(r' wikidata(.*?)$', "", authorid)
         except TypeError:
             authorid = str(authorid)
+        if re.search("viaf.org", authorid):
+            authorid = re.search("https://viaf.org/viaf/(.*?)/", authorid).group(1)
+            authorid = "viaf:" + authorid
+            #print(authorid)
+        elif re.search("d-nb.info/gnd", authorid):
+            authorid = re.search("http://d-nb.info/gnd/(.*?)", authorid).group(1)
+            authorid = "gnd:" + authorid
+            print(authorid)
     else:
         authorid = ""
     # gender
