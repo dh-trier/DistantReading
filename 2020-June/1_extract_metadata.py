@@ -34,7 +34,7 @@ from collections import Counter
 # === Files and folders ===
 
 inputdir = join("input", "")
-collection = "ELTeC-ita"
+collection = "ELTeC-fra"
 level = "level1"
 
 
@@ -110,7 +110,8 @@ def get_authordata(xml):
         namespaces = {'tei':'http://www.tei-c.org/ns/1.0'}       
         authordata = xml.xpath("//tei:titleStmt/tei:author/text()",
                                namespaces=namespaces)[0]
-        author = re.search("(.*?) \(", authordata).group(1)
+        author = re.search("(\D+) \(", authordata).group(1)
+        print(authordata, "\n", author)
         try:
             birth = re.search("\((\d\d\d\d)", authordata).group(1)
         except:
