@@ -27,7 +27,7 @@ from bs4 import BeautifulSoup as soup
 
 # === Files and folders ===
 
-collection = "ELTeC-slv"
+collection = "ELTeC-ita"
 level = "level1"
 
 
@@ -116,22 +116,32 @@ def fill_LLL_aggregation(language, aggregation_list):
 
 # === Functions to fill template files: one per text ===
 
-
-def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
-    # Read the empty templatefile
-    templatefile = "LLLNNN.edition.meta"
-    template = read_template(join("LLL", templatefile))
-    template = re.sub("LLL", language, template)
-    # Find information for the template
+def get_metadata_information(xmlfile, metadata):
+    
+    # identifier
     if "_" in basename(xmlfile):
         identifier= basename(xmlfile).split("_")[0]
     else:
         identifier= basename(xmlfile).split(".")[0]
-    author = metadata.loc[identifier, "author"]
+    # author
+    try:
+        author = metadata.loc[identifier, "author"]  
+    
+    # if xmlif doesnt match the filename, try to look for it
+    except KeyError:
+        testid = re.search("\d+", basename(xmlfile).split("_")[0]).group(0)
+        for row in metadata.index:
+            if re.search(testid, row):
+                identifier = row
+                author = metadata.loc[identifier, "author"]
+
+    # title
     title = metadata.loc[identifier, "title"]
+    # first edition and print edition
     firstedition = metadata.loc[identifier, "firstedition"]
     printedition = metadata.loc[identifier, "printedition"]
-    authorid = metadata.loc[identifier, "authorid"]
+    # authorid, i.e. viaf or gnd
+    authorid = str(metadata.loc[identifier, "authorid"])
     if re.search("gnd", authorid) or re.search("viaf", authorid):
         try:
             authorid = re.sub(r' wikidata(.*?)$', "", authorid)
@@ -139,6 +149,23 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
             authorid = str(authorid)
     else:
         authorid = ""
+    # gender
+    gender = metadata.loc[identifier, "gender"]
+    # size
+    size = metadata.loc[identifier, "size"]
+    # reprints
+    reprints = metadata.loc[identifier, "reprints"]
+    # timeslot
+    timeslot = metadata.loc[identifier, "timeslot"]
+    
+    return identifier, author, title, firstedition, printedition, authorid, gender, size, reprints, timeslot
+
+def fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, firstedition, printedition, authorid):
+    # Read the empty templatefile
+    templatefile = "LLLNNN.edition.meta"
+    template = read_template(join("LLL", templatefile))
+    template = re.sub("LLL", language, template)
+    
     # Fill information into the template
     template = re.sub("LLL", language, template)
     template = re.sub("NNN", counter, template)
@@ -155,7 +182,6 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata):
     # Adapt the templatefile's filename
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
-
 
     # templatefile = join(language, templatefile)
     # Save the individual, filled-in templatefile
@@ -188,17 +214,10 @@ def fill_LLL_LLLNNN_xml(xmlfile, counter, language):
     save_template(template, language, templatefile, 2)
 
 
-def fill_LLL_LLLNNN_xml_meta(xmlfile, counter, language, metadata):
+def fill_LLL_LLLNNN_xml_meta(xmlfile, counter, language, title):
     # read emtpy template-file
     templatefile = "-LLLNNN.xml.meta"
     template = read_template(join("LLL", "LLLNNN", templatefile))
-    # Find information for the template
-    if "_" in basename(xmlfile):
-        identifier= basename(xmlfile).split("_")[0]
-    else:
-        identifier= basename(xmlfile).split(".")[0]
-    title = metadata.loc[identifier, "title"]
-    # Fill information into the template
     template = re.sub("#title#", title, template)
     # Adapt the templatefile's filename
     templatefile = re.sub("LLL", language, templatefile)
@@ -217,31 +236,9 @@ def fill_LLL_LLLNNN_work(xmlfile, counter, language):
     save_template(template, language, templatefile, 2)
 
 
-def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
+def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, firstedition, printedition, gender, size, reprints, timeslot, authorid):
     templatefile = "LLLNNN.work.meta"
     template = read_template(join("LLL", "LLLNNN", templatefile))
-    # Find information for the template
-    if "_" in basename(xmlfile):
-        identifier= basename(xmlfile).split("_")[0]
-    else:
-        identifier= basename(xmlfile).split(".")[0]
-    author = metadata.loc[identifier, "author"]
-    title = metadata.loc[identifier, "title"]
-    firstedition = metadata.loc[identifier, "firstedition"]
-    printedition = metadata.loc[identifier, "printedition"]
-    gender = metadata.loc[identifier, "gender"]
-    size = metadata.loc[identifier, "size"]
-    reprints = metadata.loc[identifier, "reprints"]
-    timeslot = metadata.loc[identifier, "timeslot"]
-    authorid = metadata.loc[identifier, "authorid"]
-    if re.search("gnd", authorid) or re.search("viaf", authorid):
-        try:
-            authorid = re.sub(r' wikidata(.*?)$', "", authorid)
-        except TypeError:
-            authorid = str(authorid)
-    else:
-        authorid = ""
-
     # Fill information into the template
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
@@ -266,7 +263,6 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata):
 
 # === Main ===
 
-
 def main(collection, level):
     language = collection[-3:].upper()
     metadatafile = join("metadata", collection + ".tsv")
@@ -278,12 +274,13 @@ def main(collection, level):
         counter += 1
         counter = "{:03}".format(counter)
         print(counter, basename(xmlfile))
-        fill_LLLNNN_edition_meta(xmlfile, counter, language, metadata)
+        identifier, author, title, firstedition, printedition, authorid, gender, size, reprints, timeslot = get_metadata_information(xmlfile, metadata)
+        fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, firstedition, printedition, authorid)
         fill_LLL_LLLNNN_edition(xmlfile, counter, language)
         fill_LLL_LLLNNN_xml(xmlfile, counter, language)
-        fill_LLL_LLLNNN_xml_meta(xmlfile, counter, language, metadata)
+        fill_LLL_LLLNNN_xml_meta(xmlfile, counter, language, title)
         fill_LLL_LLLNNN_work(xmlfile, counter, language)
-        fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, metadata)
+        fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, firstedition, printedition, gender, size, reprints, timeslot, authorid)
         counter = int(counter)
 
     # creates a list of all current edition-files in folder output/LLL/*.edition
