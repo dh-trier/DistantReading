@@ -27,8 +27,8 @@ from bs4 import BeautifulSoup as soup
 
 # === Files and folders ===
 
-collection = "ELTeC-deu"
-level = "level0"
+collection = "ELTeC-slv"
+level = "level1"
 
 
 # === Helper functions ===
@@ -110,6 +110,8 @@ def fill_LLL_aggregation(language, aggregation_list):
         rdf_tag.append(new_tag)
 
     template = template.prettify()
+    template = re.sub('</ore:aggregates>\n', "", str(template))
+
     # save file
     save_template(str(template), language, templatefile, 0)
 
