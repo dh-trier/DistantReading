@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
+  <generic>
+    <provided>
+      <title>Coningsby: or, The New Generation</title>
+      <format>text/tg.edition+tg.aggregation+xml</format>
+      <notes/>
+    </provided>
+    <generated/>
+  </generic>
+  <edition>
+    <isEditionOf>ENG/ENG004.work</isEditionOf>
+    <agent role="author" id="viaf:49233448">Disraeli, Benjamin</agent>
+    <source>
+      <bibliographicCitation>
+        <author id="viaf:49233448">Disraeli, Benjamin</author>
+        <editionTitle>Coningsby: or, The New Generation : ELTeC Edition</editionTitle>
+        <placeOfPublication>
+          <value>Trier</value>
+        </placeOfPublication>
+        <dateOfPublication>1844.0</dateOfPublication>
+        <spage/>
+      </bibliographicCitation>
+    </source>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </edition>
+</object>

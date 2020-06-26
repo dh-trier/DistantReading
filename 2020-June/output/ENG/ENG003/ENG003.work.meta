@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
+  <generic>
+    <provided>
+      <title>The Twins: A Domestic Novel : ELTeC
+                                                  edition</title>
+      <format>text/tg.work+xml</format>
+    </provided>
+    <generated/>
+  </generic>
+  <work>
+    <agent role="author" id="viaf:44385259">Tupper, Martin Farquhar
+                                                 </agent>
+    <dateOfCreation notBefore="" notAfter="">nan</dateOfCreation>
+    <temporal>
+	<id type="/profileDesc/textClass/timeSlot@key">timeSlot</id>
+	<value>T1</value></temporal>
+    <subject>
+	<id type="/profileDesc/textClass/authorGender@key">authorGender</id>
+	<value>M</value></subject>
+	<subject>
+	<id type="/profileDesc/textClass/size@key">size</id>
+	<value>short</value></subject>
+	<subject>
+	<id type="/profileDesc/textClass/reprintCount@key">reprintCount</id>
+	<value>low</value></subject>
+	<genre>prose</genre>
+  </work>
+</object>

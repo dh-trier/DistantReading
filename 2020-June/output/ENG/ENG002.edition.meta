@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
+  <generic>
+    <provided>
+      <title>Modern Flirtations: or, A Month at Harrowgate</title>
+      <format>text/tg.edition+tg.aggregation+xml</format>
+      <notes/>
+    </provided>
+    <generated/>
+  </generic>
+  <edition>
+    <isEditionOf>ENG/ENG002.work</isEditionOf>
+    <agent role="author" id="viaf:37692813">Sinclair, Catherine</agent>
+    <source>
+      <bibliographicCitation>
+        <author id="viaf:37692813">Sinclair, Catherine</author>
+        <editionTitle>Modern Flirtations: or, A Month at Harrowgate : ELTeC Edition</editionTitle>
+        <placeOfPublication>
+          <value>Trier</value>
+        </placeOfPublication>
+        <dateOfPublication>1841.0</dateOfPublication>
+        <spage/>
+      </bibliographicCitation>
+    </source>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </edition>
+</object>
