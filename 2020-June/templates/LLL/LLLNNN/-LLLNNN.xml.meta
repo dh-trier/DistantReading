@@ -5,7 +5,6 @@
       <title>#title#</title>
       <format>text/xml</format>
     </provided>
-    <generated/>
   </generic>
   <item>
     <rightsHolder id="">ELTeC conversion</rightsHolder>
