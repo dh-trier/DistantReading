@@ -2,23 +2,23 @@
 <object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
   <generic>
     <provided>
-      <title>En congé</title>
+      <title>Modestie et vanité, roman (La décadence latine, éthopée, XVI)</title>
       <format>text/tg.edition+tg.aggregation+xml</format>
       <notes/>
     </provided>
     <generated/>
   </generic>
   <edition>
-    <isEditionOf>FRA/FRA004.work</isEditionOf>
-    <agent role="author" id="viaf:41872490">Fleuriot, Zénaïde</agent>
+    <isEditionOf>FRA/FRA012.work</isEditionOf>
+    <agent role="author" id="viaf:934869">Peladan, Joséphin [Joseph-Aimé Peladan]</agent>
     <source>
       <bibliographicCitation>
-        <author id="viaf:41872490">Fleuriot, Zénaïde</author>
-        <editionTitle>En congé : ELTeC Edition</editionTitle>
+        <author id="viaf:934869">Peladan, Joséphin [Joseph-Aimé Peladan]</author>
+        <editionTitle>Modestie et vanité, roman (La décadence latine, éthopée, XVI) : ELTeC Edition</editionTitle>
         <placeOfPublication>
           <value>Trier</value>
         </placeOfPublication>
-        <dateOfPublication>nan</dateOfPublication>
+        <dateOfPublication>1902</dateOfPublication>
         <spage/>
       </bibliographicCitation>
     </source>

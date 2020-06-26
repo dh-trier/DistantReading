@@ -2,7 +2,7 @@
 <object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
   <generic>
     <provided>
-      <title>La porteuse de pain</title>
+      <title>Mon Village</title>
       <format>text/tg.edition+tg.aggregation+xml</format>
       <notes/>
     </provided>
@@ -10,15 +10,15 @@
   </generic>
   <edition>
     <isEditionOf>FRA/FRA001.work</isEditionOf>
-    <agent role="author" id="">de Montépin, Xavier</agent>
+    <agent role="author" id="viaf:64000638">Adam, Juliette</agent>
     <source>
       <bibliographicCitation>
-        <author id="gnd:11739467X">de Montépin, Xavier</author>
-        <editionTitle>La porteuse de pain : ELTeC Edition</editionTitle>
+        <author id="viaf:64000638">Adam, Juliette</author>
+        <editionTitle>Mon Village : ELTeC Edition</editionTitle>
         <placeOfPublication>
           <value>Trier</value>
         </placeOfPublication>
-        <dateOfPublication>202s0</dateOfPublication>
+        <dateOfPublication>1868</dateOfPublication>
         <spage/>
       </bibliographicCitation>
     </source>
