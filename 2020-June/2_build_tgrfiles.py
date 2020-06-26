@@ -110,7 +110,6 @@ def fill_LLL_aggregation(language, aggregation_list):
         rdf_tag.append(new_tag)
 
     template = template.prettify()
-    template = re.sub('</ore:aggregates>\n', "", str(template))
 
     # save file
     save_template(str(template), language, templatefile, 0)
