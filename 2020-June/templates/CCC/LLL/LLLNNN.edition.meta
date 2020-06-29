@@ -6,7 +6,6 @@
       <format>text/tg.edition+tg.aggregation+xml</format>
       <notes/>
     </provided>
-    <generated/>
   </generic>
   <edition>
     <isEditionOf>LLLNNN/LLLNNN.work</isEditionOf>
@@ -16,7 +15,7 @@
         <author id="#xxx#">#author#</author>
         <editionTitle>#title# : ELTeC Edition</editionTitle>
         <placeOfPublication>
-          <value>Trier</value>
+          <value>#place#</value>
         </placeOfPublication>
         <dateOfPublication>#edition#</dateOfPublication>
         <spage/>
