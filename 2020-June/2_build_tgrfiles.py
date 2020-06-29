@@ -115,7 +115,7 @@ def fill_collection(language, collection_files_list):
     for col in collection_files_list:
         rdf_tag = template.find({"rdf:Description"})
         new_tag = template.new_tag("ore:aggregates")
-        new_tag.attrs["rdf:resource"] = "{}/-{}.aggregation".format("ELTeC", col)
+        new_tag.attrs["rdf:resource"] = "{}/{}".format("ELTeC", col)
         new_tag.append("")
         rdf_tag.append(new_tag)
 
