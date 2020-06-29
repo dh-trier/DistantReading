@@ -27,7 +27,7 @@ from bs4 import BeautifulSoup as soup
 
 # === Files and folders ===
 
-collection = "ELTeC-fra"
+collection = "ELTeC-slv"
 level = "level1"
 
 
@@ -37,7 +37,6 @@ level = "level1"
 def read_metadatafile(metadatafile):
     with open(metadatafile, "r", encoding="utf8") as infile:
         metadata = pd.read_csv(infile, sep="\t", index_col="xmlid")
-        # print(metadata.head())
     return metadata
 
 
@@ -54,7 +53,6 @@ def save_template(template, language, templatefile, outputlevel):
     # outputlevel creates the correct folder directory for each file
     new_folder = templatefile.split(".")[0]
     new_folder = re.sub("-", "", new_folder)
-    # print(new_folder)
     
     outputlevel0 = "output"
     col_folder = join("output", "ELTeC")
@@ -65,11 +63,8 @@ def save_template(template, language, templatefile, outputlevel):
     # create collection-file if it doesn't already exists
     if not os.path.exists(col_folder):
         os.makedirs(col_folder)
-    
-    # print(outfolder2)
     if not os.path.exists(LLL_level):
         os.makedirs(LLL_level)
-
     if outputlevel == 0:
         path = outputlevel0
     elif outputlevel == 1:
@@ -86,12 +81,31 @@ def save_template(template, language, templatefile, outputlevel):
     with open(join(path, templatefile), "w", encoding="utf8") as outfile:
         outfile.write(template)
 
+def check_date(date):
+    date =str(date)
+    if len(date)>=4 and date[:4].isdigit():
+        notBefore = date[:4]
+        if len(date)>= 9 and date[5:].isdigit():
+            notAfter = date[5:]
+
+        else:
+            notAfter = notBefore
+    else:
+        notBefore ="NA"
+        notAfter = "NA"
+
+    if notBefore == notAfter:
+        date = notBefore
+    else:
+        date = notBefore+"-"+notAfter
+
+    return date, notBefore, notAfter
+
 # === Functions to fill template files: (Eltec-)collection files ===
 
 def fill_collection(language, collection_files_list):
     templatefile = "CCC.collection"
     template = read_template(join(templatefile))
-    #print(template)
     template = re.sub("CCC", "ELTeC", template)
     template = re.sub('<ore:aggregates rdf:resource="ELTeC/-LLL.aggregation"/>', "", template)
     
@@ -183,7 +197,11 @@ def get_metadata_information(xmlfile, metadata):
     title = metadata.loc[identifier, "title"]
     # first edition and print edition
     firstedition = metadata.loc[identifier, "firstedition"]
-    printedition = metadata.loc[identifier, "printedition"]
+    notBefore, notAfter, date = check_date(firstedition)
+    if date == "NA":
+        printedition = metadata.loc[identifier, "printedition"]
+        notBefore, notAfter, date = check_date(printedition)
+    
     # authorid, i.e. viaf or gnd
     authorid = str(metadata.loc[identifier, "authorid"])
     if re.search("gnd", authorid) or re.search("viaf", authorid):
@@ -194,7 +212,6 @@ def get_metadata_information(xmlfile, metadata):
         if re.search("viaf.org", authorid):
             authorid = re.search("https://viaf.org/viaf/(.*?)/", authorid).group(1)
             authorid = "viaf:" + authorid
-            #print(authorid)
         elif re.search("d-nb.info/gnd", authorid):
             authorid = re.search("http://d-nb.info/gnd/(.*?)", authorid).group(1)
             authorid = "gnd:" + authorid
@@ -209,10 +226,12 @@ def get_metadata_information(xmlfile, metadata):
     reprints = metadata.loc[identifier, "reprints"]
     # timeslot
     timeslot = metadata.loc[identifier, "timeslot"]
+    # timeslot
+    pubPlace = metadata.loc[identifier, "pubplace"]
     
-    return identifier, author, title, firstedition, printedition, authorid, gender, size, reprints, timeslot
+    return identifier, author, title, date, notBefore, notAfter, authorid, gender, size, reprints, timeslot, pubPlace
 
-def fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, firstedition, printedition, authorid):
+def fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, date, authorid, pubPlace):
     
     # Read the empty templatefile
     templatefile = "LLLNNN.edition.meta"
@@ -224,10 +243,8 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, firstedi
     template = re.sub("NNN", counter, template)
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
-    if type(firstedition)== int:
-        template = re.sub("#edition#", str(firstedition), template)
-    else:
-        template = re.sub("#edition#", str(printedition), template)
+    template = re.sub("#edition#", str(date), template)
+    template = re.sub("#place#", pubPlace, template)
     if not authorid == "":
         template = re.sub("#xxx#", authorid, template)
     else:
@@ -289,48 +306,15 @@ def fill_LLL_LLLNNN_work(xmlfile, counter, language):
     save_template(template, language, templatefile, 3)
 
 
-def check_date(date):
-    
-    print(date)
-    if len(str(date))>=4 and str(date)[:4].isdigit():
-        notBefore = str(date)[:4]
-        if len(str(date))>= 9 and str(date)[5:].isdigit():
-            notAfter = str(date)[5:]
-
-        else:
-            notAfter = notBefore
-    else:
-        notBefore ="NA"
-        notAfter = "NA"
-
-    if notBefore == notAfter:
-        date = notBefore
-    else:
-        date = notBefore+"-"+notAfter
-
-    return date, notBefore, notAfter
-
-def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, firstedition, printedition, gender, size, reprints, timeslot, authorid):
+def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, date, notBefore, notAfter, gender, size, reprints, timeslot, authorid):
     templatefile = "LLLNNN.work.meta"
     template = read_template(join("CCC", "LLL", "LLLNNN", templatefile))
     # Fill information into the template
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
-    notBefore, notAfter, date = check_date(firstedition)
-    
-    if date == "NA":
-        notBefore, notAfter, date = check_date(printedition)
-
     template = re.sub("#notBEdition#", str(notBefore), template)
     template = re.sub("#notAEdition#", str(notAfter), template)
     template = re.sub("#edition#", str(date), template)
-    print(template)
-
-    
-    #if type(firstedition) == int:
-    #    template = re.sub("#edition#", str(firstedition), template)
-    #else:
-    #    template = re.sub("#edition#", str(printedition), template)
     template = re.sub("#authorGender#", gender, template)
     template = re.sub("#size#", size, template)
     template = re.sub("#reprintCount#", str(reprints), template)
@@ -360,13 +344,13 @@ def main(collection, level):
         counter += 1
         counter = "{:03}".format(counter)
         print(counter, basename(xmlfile))
-        identifier, author, title, firstedition, printedition, authorid, gender, size, reprints, timeslot = get_metadata_information(xmlfile, metadata)
-        fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, firstedition, printedition, authorid)
+        identifier, author, title, date, notBefore, notAfter, authorid, gender, size, reprints, timeslot, pubPlace = get_metadata_information(xmlfile, metadata)
+        fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, date, authorid, pubplace)
         fill_LLL_LLLNNN_edition(xmlfile, counter, language)
         fill_LLL_LLLNNN_xml(xmlfile, counter, language)
         fill_LLL_LLLNNN_xml_meta(xmlfile, counter, language, title)
         fill_LLL_LLLNNN_work(xmlfile, counter, language)
-        fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, firstedition, printedition, gender, size, reprints, timeslot, authorid)
+        fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, date, notBefore, notAfter, gender, size, reprints, timeslot, authorid)
         counter = int(counter)
 
     # creates a list of all current edition-files in folder output/LLL/*.edition
@@ -380,7 +364,6 @@ def main(collection, level):
     collection_files_path = join("output", "ELTeC", "*.aggregation")
     for file in glob.glob(collection_files_path):
         collection_files_list.append(basename(file))
-    #print(collection_files_list)
     fill_collection(language, collection_files_list)
     
 main(collection, level)

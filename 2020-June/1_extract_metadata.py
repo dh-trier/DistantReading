@@ -34,7 +34,7 @@ from collections import Counter
 # === Files and folders ===
 
 inputdir = join("input", "")
-collection = "ELTeC-fra"
+collection = "ELTeC-eng"
 level = "level1"
 
 
@@ -50,7 +50,8 @@ xpaths = {"xmlid" : "//tei:TEI/@xml:id",
           "digitalSource" : "//tei:bibl[@type='digitalSource']/tei:publisher/text()",
           "language" : "//tei:langUsage/tei:language/@ident",
           "authorid" : "//tei:titleStmt/tei:author/@ref",
-          "printedition" : "//tei:bibl[@type='printSource']/tei:date/text()"}
+          "printedition" : "//tei:bibl[@type='printSource']/tei:date/text()",
+          "pubplace" : "//tei:bibl[@type='printSource']/tei:pubPlace/text()"}
 
 ordering = ["filename", "xmlid", "author", "title", "firstedition", "language", "gender", "size", "reprints", "timeslot", "authorid", "printedition"]
 
@@ -111,7 +112,6 @@ def get_authordata(xml):
         authordata = xml.xpath("//tei:titleStmt/tei:author/text()",
                                namespaces=namespaces)[0]
         author = re.search("(\D+) \(", authordata).group(1)
-        print(authordata, "\n", author)
         try:
             birth = re.search("\((\d\d\d\d)", authordata).group(1)
         except:
