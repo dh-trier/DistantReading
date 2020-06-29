@@ -85,6 +85,26 @@ def save_template(template, language, templatefile, outputlevel):
 
     with open(join(path, templatefile), "w", encoding="utf8") as outfile:
         outfile.write(template)
+        
+def check_date(date):
+	date=str(date)
+	if len(str(date))>=4 and date[:4].isdigit():
+		notBefore = date[:4]
+		if len(date)>= 9 and date[5:].isdigit():
+			notAfter = date[5:]
+			
+		else:
+			notAfter = notBefore
+	else:
+		notBefore ="NA"
+		notAfter = "NA"
+
+	if notBefore == notAfter:
+		date = notBefore
+	else:
+		date = notBefore+"-"+notAfter
+
+	return date, notBefore, notAfter
 
 # === Functions to fill template files: (Eltec-)collection files ===
 
@@ -295,10 +315,19 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, firsted
     # Fill information into the template
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
+    '''
     if type(firstedition) == int:
         template = re.sub("#edition#", str(firstedition), template)
     else:
         template = re.sub("#edition#", str(printedition), template)
+    '''
+    notBefore, notAfter, date = check_date(firstedition)
+    #if date == "NA":
+	#	notBefore, notAfter, date = check_date(printedition)
+    template = re.sub("#notBEdition#", str(notBefore), template)
+    template = re.sub("#notAEdition#", str(notAfter), template)
+    template = re.sub("#edition#", str(date), template)
+
     template = re.sub("#authorGender#", gender, template)
     template = re.sub("#size#", size, template)
     template = re.sub("#reprintCount#", str(reprints), template)
