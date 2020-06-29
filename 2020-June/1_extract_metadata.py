@@ -34,7 +34,7 @@ from collections import Counter
 # === Files and folders ===
 
 inputdir = join("input", "")
-collection = "ELTeC-eng"
+collection = "ELTeC-slv"
 level = "level1"
 
 
@@ -53,7 +53,7 @@ xpaths = {"xmlid" : "//tei:TEI/@xml:id",
           "printedition" : "//tei:bibl[@type='printSource']/tei:date/text()",
           "pubplace" : "//tei:bibl[@type='printSource']/tei:pubPlace/text()"}
 
-ordering = ["filename", "xmlid", "author", "title", "firstedition", "language", "gender", "size", "reprints", "timeslot", "authorid", "printedition"]
+ordering = ["filename", "xmlid", "author", "title", "firstedition", "language", "gender", "size", "reprints", "timeslot", "authorid", "printedition", "pubplace"]
 
 sorting = ["firstedition", True] # column, ascending?
 
@@ -124,7 +124,9 @@ def get_authordata(xml):
         author = "NA"
         birth = "NA"
         death = "NA"
-    #print(author, birth, death)
+    author = re.sub('"', '', author).strip()
+    birth = re.sub('"', '', birth).strip()
+    death = re.sub('"', '', death).strip()
     return author,birth,death
 
 
@@ -167,7 +169,8 @@ def main(inputdir, collection, level, xpaths, ordering, sorting):
                 author,birth,death = get_authordata(xml)
                 keys.extend(["author", "birth", "death"])
                 metadata.extend([author, birth, death])
-                for key,xpath in xpaths.items(): 
+                for key,xpath in xpaths.items():
+                    xpath = re.sub('"', '', xpath).strip()
                     metadatum = get_metadatum(xml, xpath)
                     keys.append(key)
                     metadata.append(metadatum)

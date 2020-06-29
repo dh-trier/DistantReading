@@ -27,7 +27,7 @@ from bs4 import BeautifulSoup as soup
 
 # === Files and folders ===
 
-collection = "ELTeC-slv"
+collection = "ELTeC-por"
 level = "level1"
 
 
@@ -115,7 +115,7 @@ def fill_collection(language, collection_files_list):
     for col in collection_files_list:
         rdf_tag = template.find({"rdf:Description"})
         new_tag = template.new_tag("ore:aggregates")
-        new_tag.attrs["rdf:resource"] = "{}/-{}.aggregation".format("ELTeC", language)
+        new_tag.attrs["rdf:resource"] = "{}/-{}.aggregation".format("ELTeC", col)
         new_tag.append("")
         rdf_tag.append(new_tag)
 
@@ -244,7 +244,7 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, date, au
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
     template = re.sub("#edition#", str(date), template)
-    template = re.sub("#place#", pubPlace, template)
+    template = re.sub("#place#", str(pubPlace), template)
     if not authorid == "":
         template = re.sub("#xxx#", authorid, template)
     else:
@@ -345,7 +345,7 @@ def main(collection, level):
         counter = "{:03}".format(counter)
         print(counter, basename(xmlfile))
         identifier, author, title, date, notBefore, notAfter, authorid, gender, size, reprints, timeslot, pubPlace = get_metadata_information(xmlfile, metadata)
-        fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, date, authorid, pubplace)
+        fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, date, authorid, pubPlace)
         fill_LLL_LLLNNN_edition(xmlfile, counter, language)
         fill_LLL_LLLNNN_xml(xmlfile, counter, language)
         fill_LLL_LLLNNN_xml_meta(xmlfile, counter, language, title)
@@ -355,7 +355,7 @@ def main(collection, level):
 
     # creates a list of all current edition-files in folder output/LLL/*.edition
     aggregation_files_list = []
-    aggregation_files_path = join("output", language, "*.edition")
+    aggregation_files_path = join("output", "ELTeC", language, "*.edition")
     for file in glob.glob(aggregation_files_path):
         aggregation_files_list.append(basename(file))
     fill_LLL_aggregation(language, aggregation_files_list)
