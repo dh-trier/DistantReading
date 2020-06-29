@@ -27,7 +27,7 @@ from bs4 import BeautifulSoup as soup
 
 # === Files and folders ===
 
-collection = "ELTeC-slv"
+collection = "ELTeC-fra"
 level = "level1"
 
 
@@ -49,33 +49,75 @@ def read_template(templateid):
 
 
 def save_template(template, language, templatefile, outputlevel):
+    
     # saves all files
     # outputlevel creates the correct folder directory for each file
     new_folder = templatefile.split(".")[0]
     new_folder = re.sub("-", "", new_folder)
     # print(new_folder)
+    
+    outputlevel0 = "output"
+    col_folder = join("output", "ELTeC")
+    LLL_level = join("output", "ELTeC", language)
+    LLLNNN_level = join("output", "ELTeC", language, new_folder)
 
-    outfolder0 = "output"
-    outfolder1 = join("output", language)
-    # print(templatefile)
-    outfolder2 = join("output", language, new_folder)
+    
+    # create collection-file if it doesn't already exists
+    if not os.path.exists(col_folder):
+        os.makedirs(col_folder)
+    
     # print(outfolder2)
-    if not os.path.exists(outfolder1):
-        os.makedirs(outfolder1)
+    if not os.path.exists(LLL_level):
+        os.makedirs(LLL_level)
 
     if outputlevel == 0:
-        path = outfolder0
+        path = outputlevel0
     elif outputlevel == 1:
-        path = outfolder1
+        path = col_folder
     elif outputlevel == 2:
-        if not os.path.exists(outfolder2):
-            os.makedirs(outfolder2)
-        path = outfolder2
+        path = LLL_level
+    elif outputlevel == 3:
+        if not os.path.exists(LLLNNN_level):
+            os.makedirs(LLLNNN_level)
+        path = LLLNNN_level
     else:
         print("Something went wrong with directories.")
 
     with open(join(path, templatefile), "w", encoding="utf8") as outfile:
         outfile.write(template)
+
+# === Functions to fill template files: (Eltec-)collection files ===
+
+def fill_collection(language, collection_files_list):
+    templatefile = "CCC.collection"
+    template = read_template(join(templatefile))
+    #print(template)
+    template = re.sub("CCC", "ELTeC", template)
+    template = re.sub('<ore:aggregates rdf:resource="ELTeC/-LLL.aggregation"/>', "", template)
+    
+    # parses the file as bs4-object and fills in each rdf_resource, i.e. edition used
+    template = soup(template, "xml")
+
+    for col in collection_files_list:
+        rdf_tag = template.find({"rdf:Description"})
+        new_tag = template.new_tag("ore:aggregates")
+        new_tag.attrs["rdf:resource"] = "{}/-{}.aggregation".format("ELTeC", language)
+        new_tag.append("")
+        rdf_tag.append(new_tag)
+
+    template = template.prettify()
+    templatefile = re.sub("CCC", "ELTeC", templatefile)
+    # save file
+    save_template(str(template), language, templatefile, 0)
+
+
+def fill_collection_meta(language):
+    templatefile = "CCC.collection.meta"
+    template = read_template(join(templatefile))
+    template = re.sub("CCC", "ELTeC", template)
+    templatefile = re.sub("CCC", "ELTeC", templatefile)
+    save_template(template, language, templatefile, 0)
+
 
 
 # === Functions to fill template files: one per language ===
@@ -83,17 +125,17 @@ def save_template(template, language, templatefile, outputlevel):
 
 def fill_aggregation_meta(language):
     templatefile = "-LLL.aggregation.meta"
-    template = read_template(join(templatefile))
+    template = read_template(join("CCC", templatefile))
     template = re.sub("LLL", language, template)
     templatefile = re.sub("LLL", language, templatefile)
-    save_template(template, language, templatefile, 0)
+    save_template(template, language, templatefile, 1)
 
 
 def fill_LLL_aggregation(language, aggregation_list):
     # fills the LLL.aggregation-file using a list of all edition-files
     # Read the emtpy template-file
     templatefile = "-LLL.aggregation"
-    template = read_template(join(templatefile))
+    template = read_template(join("CCC", templatefile))
     # Changes filename and description-tag
     templatefile = re.sub("LLL", language, templatefile)
     template = re.sub('<rdf:Description rdf:about="-LLL.aggregation">',
@@ -112,7 +154,7 @@ def fill_LLL_aggregation(language, aggregation_list):
     template = template.prettify()
 
     # save file
-    save_template(str(template), language, templatefile, 0)
+    save_template(str(template), language, templatefile, 1)
 
 
 # === Functions to fill template files: one per text ===
@@ -171,9 +213,10 @@ def get_metadata_information(xmlfile, metadata):
     return identifier, author, title, firstedition, printedition, authorid, gender, size, reprints, timeslot
 
 def fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, firstedition, printedition, authorid):
+    
     # Read the empty templatefile
     templatefile = "LLLNNN.edition.meta"
-    template = read_template(join("LLL", templatefile))
+    template = read_template(join("CCC", "LLL", templatefile))
     template = re.sub("LLL", language, template)
     
     # Fill information into the template
@@ -195,13 +238,13 @@ def fill_LLLNNN_edition_meta(xmlfile, counter, language, author, title, firstedi
 
     # templatefile = join(language, templatefile)
     # Save the individual, filled-in templatefile
-    save_template(template, language, templatefile, 1)
+    save_template(template, language, templatefile, 2)
 
 
 def fill_LLL_LLLNNN_edition(xmlfile, counter, language):
     # Read the empty templatefile
     templatefile = "LLLNNN.edition"
-    template = read_template(join("LLL", templatefile))
+    template = read_template(join("CCC", "LLL", templatefile))
     # Fill information into the template
     template = re.sub("LLL", language, template)
     template = re.sub("NNN", counter, template)
@@ -209,7 +252,7 @@ def fill_LLL_LLLNNN_edition(xmlfile, counter, language):
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
     # Save the individual, filled-in templatefile
-    save_template(template, language, templatefile, 1)
+    save_template(template, language, templatefile, 2)
 
 
 def fill_LLL_LLLNNN_xml(xmlfile, counter, language):
@@ -221,34 +264,34 @@ def fill_LLL_LLLNNN_xml(xmlfile, counter, language):
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
     # save xml-file
-    save_template(template, language, templatefile, 2)
+    save_template(template, language, templatefile, 3)
 
 
 def fill_LLL_LLLNNN_xml_meta(xmlfile, counter, language, title):
     # read emtpy template-file
     templatefile = "-LLLNNN.xml.meta"
-    template = read_template(join("LLL", "LLLNNN", templatefile))
+    template = read_template(join("CCC", "LLL", "LLLNNN", templatefile))
     template = re.sub("#title#", title, template)
     # Adapt the templatefile's filename
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
 
-    save_template(template, language, templatefile, 2)
+    save_template(template, language, templatefile, 3)
 
 
 def fill_LLL_LLLNNN_work(xmlfile, counter, language):
     # read empty template-file
     templatefile = "LLLNNN.work"
-    template = read_template(join("LLL", "LLLNNN", templatefile))
+    template = read_template(join("CCC", "LLL", "LLLNNN", templatefile))
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
 
-    save_template(template, language, templatefile, 2)
+    save_template(template, language, templatefile, 3)
 
 
 def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, firstedition, printedition, gender, size, reprints, timeslot, authorid):
     templatefile = "LLLNNN.work.meta"
-    template = read_template(join("LLL", "LLLNNN", templatefile))
+    template = read_template(join("CCC", "LLL", "LLLNNN", templatefile))
     # Fill information into the template
     template = re.sub("#author#", author, template)
     template = re.sub("#title#", title, template)
@@ -268,7 +311,7 @@ def fill_LLL_LLLNNN_work_meta(xmlfile, counter, language, author, title, firsted
     templatefile = re.sub("LLL", language, templatefile)
     templatefile = re.sub("NNN", counter, templatefile)
 
-    save_template(template, language, templatefile, 2)
+    save_template(template, language, templatefile, 3)
 
 
 # === Main ===
@@ -278,6 +321,7 @@ def main(collection, level):
     metadatafile = join("metadata", collection + ".tsv")
     metadata = read_metadatafile(metadatafile)
     xmlfiles = join("input", collection, level, "*.xml")
+    fill_collection_meta(language)
     fill_aggregation_meta(language)
     counter = 0
     for xmlfile in glob.glob(xmlfiles):
@@ -299,5 +343,12 @@ def main(collection, level):
     for file in glob.glob(aggregation_files_path):
         aggregation_files_list.append(basename(file))
     fill_LLL_aggregation(language, aggregation_files_list)
-
+    
+    collection_files_list = []
+    collection_files_path = join("output", "ELTeC", "*.aggregation")
+    for file in glob.glob(collection_files_path):
+        collection_files_list.append(basename(file))
+    #print(collection_files_list)
+    fill_collection(language, collection_files_list)
+    
 main(collection, level)
