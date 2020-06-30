@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:="http://www.tei-c.org/ns/1.0" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:tns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <rdf:Description rdf:about="ELTeC.collection">
+  <ore:aggregates rdf:resource="ELTeC/-ENG.aggregation">
+  </ore:aggregates>
+  <ore:aggregates rdf:resource="ELTeC/-FRA.aggregation">
+  </ore:aggregates>
+  <ore:aggregates rdf:resource="ELTeC/-POR.aggregation">
+  </ore:aggregates>
+  <ore:aggregates rdf:resource="ELTeC/-SLV.aggregation">
+  </ore:aggregates>
+ </rdf:Description>
+</rdf:RDF>

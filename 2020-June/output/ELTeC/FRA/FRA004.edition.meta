@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns="http://textgrid.info/namespaces/metadata/core/2010" xmlns:tg="http://textgrid.info/relation-ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tei="http://www.tei-c.org/ns/1.0">
+  <generic>
+    <provided>
+      <title>En congé</title>
+      <format>text/tg.edition+tg.aggregation+xml</format>
+      <notes/>
+    </provided>
+  </generic>
+  <edition>
+    <isEditionOf>FRA004/FRA004.work</isEditionOf>
+    <agent role="author" id="viaf:41872490">Fleuriot, Zénaïde</agent>
+    <source>
+      <bibliographicCitation>
+        <author id="viaf:41872490">Fleuriot, Zénaïde</author>
+        <editionTitle>En congé : ELTeC Edition</editionTitle>
+        <placeOfPublication>
+          <value>nan</value>
+        </placeOfPublication>
+        <dateOfPublication>1874</dateOfPublication>
+        <spage/>
+      </bibliographicCitation>
+    </source>
+    <language>FRA</language>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </edition>
+</object>
