@@ -12,10 +12,10 @@ In a short collection of texts, each text can be described only using the inform
 The Repository and the Laboratory software of TextGrid have a complex system of different types of <a href="https://wiki.de.dariah.eu/display/TextGrid/TextGrid+Objects">**objects**</a>. This is based in <a href="http://www.rda-rsc.org/content/rda_faq#1">Resource Description & Access (RDA)</a> guidelines, which is the standard for many libraries. This model of objects tries to capture accurately the several levels and relations specified in the previous section. The objects in TextGrid are:
 
 - **Collection**: Project object that relates all other **objects (works, editions or elements)** generated within the project. Example: the Cost-Action project.
-- Aggregation: Group of **objects (works, editions or elements)**. Example: the corpus of novels in English of the Cost-Action.
-- Work: Single **creation** from one or more authors. Example: The picture of Dorian Gray by Oscar Wilde.
-- Edition: **Manifestation of a work**, for example the edition of The picture of Dorian Gray published by Penguin Books in 1994 in soft cover. 
-- Element: One specific digitization expressed in XML-TEI of an **edition** of The picture of Dorian Gray.
+- **Aggregation**: Group of **objects (works, editions or elements)**. Example: the corpus of novels in English of the Cost-Action.
+- **Work**: Single **creation** from one or more authors. Example: The picture of Dorian Gray by Oscar Wilde.
+- **Edition**: **Manifestation of a work**, for example the edition of The picture of Dorian Gray published by Penguin Books in 1994 in soft cover. 
+- **Element**: One specific digitization expressed in XML-TEI of an **edition** of The picture of Dorian Gray.
 
 Each of these five types of objects are described as **data** and **metadata**. For example, there is a .collection document and a .collection.meta files. Further <a href="<a href="https://wiki.de.dariah.eu/display/TextGrid/TextGrid+Objects">documentation about the objects types can be found in the Wiki of TextGrid</a>.
 
