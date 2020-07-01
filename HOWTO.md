@@ -10,6 +10,7 @@ In a short collection of texts, each text can be described only using the inform
 
 # TextGrid and its Objects
 The Repository and the Laboratory software of TextGrid have a complex system of different types of <a href="https://wiki.de.dariah.eu/display/TextGrid/TextGrid+Objects">**objects**</a>. This is based in <a href="http://www.rda-rsc.org/content/rda_faq#1">Resource Description & Access (RDA)</a> guidelines, which is the standard for many libraries. This model of objects tries to capture accurately the several levels and relations specified in the previous section. The objects in TextGrid are:
+
     • **Collection**: Project object that relates all other **objects (works, editions or elements)** generated within the project. Example: the Cost-Action project.
     • Aggregation: Group of **objects (works, editions or elements)**. Example: the corpus of novels in English of the Cost-Action.
     • Work: Single **creation** from one or more authors. Example: The picture of Dorian Gray by Oscar Wilde.
@@ -21,6 +22,7 @@ Each of these five types of objects are described as **data** and **metadata**. 
 # ELTeC Described in TextGrid Objects
 
 For the case of the ELTeC, it would represent following documents:
+
     • The <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/templates">**ELTeC project** is described as a **collection**</a>. This means that means one file for the data of this project (ELTeC.collection) and another one for its metadata (ELTeC.collection.meta) 
     • Each <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/templates/CCC">**language corpus** in the ELTeC is described as an **aggregation**</a>. That means that for each language, there is a file for the data of this aggregation (for example: -FRA.aggregation) and another one for the metadata (-FRA.aggregation.meta ).
     • Each **text** in the ELTeC is described in **three different levels**:
@@ -29,6 +31,7 @@ For the case of the ELTeC, it would represent following documents:
         ◦ As an <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/templates/CCC/LLL/LLLNNN">**element**</a>, described as data (-FRA001.xml) and metadata (-FRA001.xml.meta).
 
 If ELTeC would contain ten corpora in ten different languages, it will require:
+
     • 2 files for the ELTeC project
     • 2 files for each language (2*10 = 20)
     • 6 files for each text (6 * 100 *10 = 6.000)
