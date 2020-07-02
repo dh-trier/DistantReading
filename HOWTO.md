@@ -5,7 +5,7 @@ This document offers an overview about the workflow to publish the ELTeC corpora
 <!--todo: <img src="workflow.png" />-->
 
 # The Challenges Associated with Large Collections of Texts:
-### Why Do we Need Many Metadata Fields (and perhaps many Files) to Manage our Corpora?
+## Why Do we Need Many Metadata Fields (and perhaps many Files) to Manage our Corpora?
 
 In a short collection of texts, each text can be described only using the information of the title, the author and perhaps the year. However, when the number of texts increase, the different abstract levels become obvious. If a data base contains several translations and editions of the same work, the researcher would probably want to link all these texts. Furthermore, the researcher perhaps wants to arrange the texts in several corpora: works with a specific thematic, works published in a specific decade, etc. All these represent several
 
@@ -43,15 +43,15 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
 
 ## From the TEI ELTeC Files to the TextGrid Objects
 
-1. The original TEI files are located in the input folder. Each language constitutes a subfolder there. <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/input">See input folder in the GitHub repository</a>.
-2. The python script 1_extract_metadata.py needs to be called for each language corpus (<a href="https://github.com/dh-trier/DistantReading/blob/master/2020-June/1_extract_metadata.py">see script in the GitHub repository</a>).
-3. The python script 1_extract_metadata.py outputs a table in a TSV format, which contains all the metadata of each language corpus. In this files, the rows are texts, and the columns are metadata fields. These files are saved by the script in the <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/metadata">folder "metadata" (see in GitHub)</a>.
-4. The python script 2_build_tgrfiles.py needs to be called for each language. It takes the metadata table in the "metadata" subfolder and creates the necessary XML files that describe the corpora and the files as TextGrid objects. These files are saved in <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">the "output" folder (see in GitHub)</a>. Specifically, it creates following files:
-    1. It creates the collection files (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">ELTeC.collection and ELTeC.collection.meta, see in GitHub</a>)
-    2. It creates the aggregation files for each language corpus (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">-ENG.aggregation and -ENG.aggregation.metadata, see in GitHub</a>)
-    3. It creates the work files for each text (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
-    4. It creates the edition files for each text (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/">ENG001.edition and ENG001.edition.metadata, see in GitHub</a>)
-    5. It creates the item files for each text (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
+1. The original TEI files are located in the <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/input">"input" folder</a>. Each language constitutes a subfolder there. <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/input">See input folder in the GitHub repository</a>.
+2. The **python script 1_extract_metadata.py** needs to be called for each language corpus (<a href="https://github.com/dh-trier/DistantReading/blob/master/2020-June/1_extract_metadata.py">see script in the GitHub repository</a>).
+3. The **python script 1_extract_metadata.py outputs a table in a TSV format**, which contains all the metadata of each language corpus. In this files, the rows are texts, and the columns are metadata fields. These files are saved by the script in the <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/metadata">folder "metadata" (see in GitHub)</a>.
+4. The **python script 2_build_tgrfiles.py** needs to be called for each language. It takes the metadata table in the "metadata" subfolder and creates the necessary XML files that describe the corpora and the files as TextGrid objects. These files are saved in <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">the "output" folder (see in GitHub)</a>. Specifically, it creates following files:
+    1. It creates the **collection files** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">ELTeC.collection and ELTeC.collection.meta, see in GitHub</a>)
+    2. It creates the **aggregation files for each language corpus** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">-ENG.aggregation and -ENG.aggregation.metadata, see in GitHub</a>)
+    3. It creates the **work files for each text** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
+    4. It creates the **edition files for each text** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/">ENG001.edition and ENG001.edition.metadata, see in GitHub</a>)
+    5. It creates the **item files for each text** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
 5. Once these files are created, they map the structure that TextGrid requires for the import.
 
 ## Import through Kolibri into TextGrid
