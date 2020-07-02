@@ -54,5 +54,20 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
     5. It creates the **item files for each text** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
 5. Once these files are created, they map the structure that TextGrid requires for the import.
 
+
+►
+|_______DEU.aggregation
+|_______DEU.aggregation.meta
+|_____►DEU
+| |_________DEU001.edition
+| |_________DEU001.edition.meta
+| |_______►DEU001
+| |__________-DEU001.xml
+| |__________-DEU001.xml.meta
+| |__________DEU001.work
+| |__________DEU001.work.meta
+|
+
+
 ## Import through Kolibri into TextGrid
 After all these files are created, they can all be automatically imported through <a href="https://dev.textgridlab.org/doc/services/submodules/kolibri/kolibri-addon-textgrid-import/docs/import_and_configuration.html">Kolibri</a>. This has been already tested with the files from the ELTeC. Coworkers of the Research and Development department of the State and University Library of Göttingen are actively supporting this tool. 
