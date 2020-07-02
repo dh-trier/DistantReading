@@ -2,7 +2,7 @@
 
 This document offers an overview about the workflow to publish the ELTeC corpora in TextGridRep. Very briefly, the Python scripts take as import each language corpus from a folder and create the necessary XML documents that are necessary to describe a text in the TextGridRep model of objects. These objects are then fed to the Kolibri system, which import all files automatically into TextGrid.
 
-<img src="eltec-textgrid-Diagram.png" width="500" />
+<img src="eltec-textgrid-Diagram.png" width="900" />
 
 # The Challenges Associated with Large Collections of Texts:
 ## Why Do we Need Many Metadata Fields (and perhaps many Files) to Manage our Corpora?
@@ -45,7 +45,7 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
 
 Following workflow chart gives an overview about the entire process:
 
-<img src="eltec-textgrid-Diagram.png" width="500" />
+<img src="eltec-textgrid-Diagram.png" width="900" />
 
 
 ## From the TEI ELTeC Files to the TextGrid Objects
