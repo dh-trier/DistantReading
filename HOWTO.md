@@ -49,9 +49,9 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
 4. The python script 2_build_tgrfiles.py needs to be called for each language. It takes the metadata table in the "metadata" subfolder and creates the necessary XML files that describe the corpora and the files as TextGrid objects. These files are saved in <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">the "output" folder (see in GitHub)</a>. Specifically, it creates following files:
     1. It creates the collection files (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">ELTeC.collection and ELTeC.collection.meta, see in GitHub</a>)
     2. It creates the aggregation files for each language corpus (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output">-ENG.aggregation and -ENG.aggregation.metadata, see in GitHub</a>)
-    3. It creates the work files for each text(<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
-    4. It creates the edition files for each text(<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/">ENG001.edition and ENG001.edition.metadata, see in GitHub</a>)
-    5. It creates the item files for each text(<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
+    3. It creates the work files for each text (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
+    4. It creates the edition files for each text (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/">ENG001.edition and ENG001.edition.metadata, see in GitHub</a>)
+    5. It creates the item files for each text (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
 5. Once these files are created, they map the structure that TextGrid requires for the import.
 
 ## Import through Kolibri into TextGrid
