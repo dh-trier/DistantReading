@@ -55,18 +55,18 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
 5. Once these files are created, they map the structure that TextGrid requires for the import.
 
 
-►
-|_______DEU.aggregation
-|_______DEU.aggregation.meta
-|_____►DEU
-| |_________DEU001.edition
-| |_________DEU001.edition.meta
-| |_______►DEU001
-| |__________-DEU001.xml
-| |__________-DEU001.xml.meta
-| |__________DEU001.work
-| |__________DEU001.work.meta
-|
+        ►
+        |_______DEU.aggregation
+        |_______DEU.aggregation.meta
+        |_____►DEU
+        | |_________DEU001.edition
+        | |_________DEU001.edition.meta
+        | |_______►DEU001
+        | |__________-DEU001.xml
+        | |__________-DEU001.xml.meta
+        | |__________DEU001.work
+        | |__________DEU001.work.meta
+        |
 
 
 ## Import through Kolibri into TextGrid
