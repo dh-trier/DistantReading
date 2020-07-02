@@ -71,3 +71,6 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
 
 ## Import through Kolibri into TextGrid
 After all these files are created, they can all be automatically imported through <a href="https://dev.textgridlab.org/doc/services/submodules/kolibri/kolibri-addon-textgrid-import/docs/import_and_configuration.html">Kolibri</a>. This has been already tested with the files from the ELTeC. Coworkers of the Research and Development department of the State and University Library of Göttingen are actively supporting this tool. 
+
+# References
+Certain sections of these "howto.md" file have been taken from the "Project Seminar: Final Report" by Schöch, Schönau and Chen.
