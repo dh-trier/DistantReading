@@ -22,6 +22,8 @@ Each of these five types of objects are described as **data** and **metadata**. 
 
 # ELTeC Described in TextGrid Objects
 
+As it is already conceived, each file of the ELTeC corpora already contains the necessary data to import it into TextGrid. It is only required that these metadata fields are in specific elements, files and folders. Therefore, it is just a matter of format. In a section below, the xpaths from the TEI files and the TextGrid Objects are mapped.
+
 For the case of the ELTeC, it would represent following documents:
 
 - The <a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/templates">**ELTeC project** is described as a **collection**</a>. This means that means one file for the data of this project (ELTeC.collection) and another one for its metadata (ELTeC.collection.meta) 
@@ -72,33 +74,34 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
 ## Import through Kolibri into TextGrid
 After all these files are created, they can all be automatically imported through <a href="https://dev.textgridlab.org/doc/services/submodules/kolibri/kolibri-addon-textgrid-import/docs/import_and_configuration.html">Kolibri</a>. This has been already tested with the files from the ELTeC. Coworkers of the Research and Development department of the State and University Library of Göttingen are actively supporting this tool. 
 
-## Xpaths: from the TEI to the TextGrid Objects
+## XPaths: from the TEI to the TextGrid Objects
+As already mentioned, the ELTeC files already contains enough metadata to be imported into TextGrid. The following tables, taken from the "Project Seminar: Final Report" (see section "References") maps the fields from the elements of the TEI files and the TextGrid objects through xPaths.
 
  |ELTeC teiHeader|TextGrid Object|TextGrid XPath| 
  |------------|---------|---------| 
- |/TEI/teiHeader[l]/fileDesc[l]/ titleStmt[l]/title[l]|Edition|/object/generic[l]/provided[l]/ title[l]| 
- |"/TEI/teiHeader[l]/fileDesc[l]/
-sourceDesc[l]/ bibl[@type=""digitalSource""]/title/ text()"|Edition|/object/edition[l]/source[l]/ bibliographicCitation[l]/ editionTitle[l]| 
- |/TEI/teiHeader/fileDesc/ publicationStmt/availability/ licence[@target]/text()|Edition|/object/edition[l]/license[l]| 
+ |/TEI/teiHeader[1]/fileDesc[1]/ titleStmt[1]/title[1]|Edition|/object/generic[1]/provided[1]/ title[1]| 
+ |"/TEI/teiHeader[1]/fileDesc[1]/
+sourceDesc[1]/ bibl[@type=""digitalSource""]/title/ text()"|Edition|/object/edition[1]/source[1]/ bibliographicCitation[1]/ editionTitle[1]| 
+ |/TEI/teiHeader/fileDesc/ publicationStmt/availability/ licence[@target]/text()|Edition|/object/edition[1]/license[1]| 
  |"""{ORDNER:Roman-ID}/{Roman- ID}.work""
-/TEI[@xml:id]/text()"|Edition|/object/edition[l]/isEditionOf[l]| 
- |/TEl/teiHeader[l]/profileDesc[l]/ langUsage[l]/language[l]|Edition|/object/edition[l]/language[l]| 
- ||Edition|/object/edition[l]/agent[l]| 
- ||Edition|/object/generic[l]/provided[l]/ format[l]| 
- |/TEl/teiHeader[l]/fileDesc[l]/ sourceDesc[l]/bibl[l]/date[l]|Edition|/object/edition[l]/source[l]/ bibliographicCitation[l]/ dateOfPublication[l]| 
- ||Edition|/object/edition[l]/source[l]/ bibliographicCitation[l]/ author[l]| 
- |/TEl/teiHeader[l]/fileDesc[l]/ titleStmt[l]/title[l]|Work|/object/generic[l]/provided[l]/ title[l]| 
- ||Work|/object/generic[l]/provided[l]/ format[l]| 
- |/TEl/teiHeader[l]/fileDesc[l]/ titleStmt[l]/author[l]|Work|/object/work[l]/agent[l]| 
- |/TEl/teiHeader[l]/profileDesc[l]/ textDesc[l]/*[namespace- uri()=' eltec/ns' and local- name()='canonicity'][l]/@xmlns||| 
- |/TEl/teiHeader[l]/profileDesc[l]/ textDesc[l]/*[namespace- uri()=' eltec/ns' and local- name()='authorGender'][l]||| 
- |/TEl/teiHeader[l]/profileDesc[l]/ textDesc[l]/*[namespace- uri()=' eltec/ns' and local-name()='size'] [1]||| 
- |/TEl/teiHeader[l]/profileDesc[l]/ textDesc[l]/*[namespace- uri()=' eltec/ns' and local- name()='timeSlot'][l]|Work|| 
- ||work|/object/work[l]/ dateOfCreation[l]| 
- ||work|/object/work[l]/genre[l]| 
- |/TEl/teiHeader[l]/fileDesc[l]/ sourceDesc[l]/bibl[l]/title[l]|item|/object/generic[l]/provided[l]/ title[l]| 
- ||item|/object/generic[l]/provided[l]/ format[l]| 
- |/TEl/teiHeader[l]/fileDesc[l]/ titleStmt[l]/respStmt[l]/resp[l]|item|/object/item[l]/rightsHolder[l]| 
+/TEI[@xml:id]/text()"|Edition|/object/edition[1]/isEditionOf[1]| 
+ |/TEl/teiHeader[1]/profileDesc[1]/ langUsage[1]/language[1]|Edition|/object/edition[1]/language[1]| 
+ ||Edition|/object/edition[1]/agent[1]| 
+ ||Edition|/object/generic[1]/provided[1]/ format[1]| 
+ |/TEl/teiHeader[1]/fileDesc[1]/ sourceDesc[1]/bibl[1]/date[1]|Edition|/object/edition[1]/source[1]/ bibliographicCitation[1]/ dateOfPublication[1]| 
+ ||Edition|/object/edition[1]/source[1]/ bibliographicCitation[1]/ author[1]| 
+ |/TEl/teiHeader[1]/fileDesc[1]/ titleStmt[1]/title[1]|Work|/object/generic[1]/provided[1]/ title[1]| 
+ ||Work|/object/generic[1]/provided[1]/ format[1]| 
+ |/TEl/teiHeader[1]/fileDesc[1]/ titleStmt[1]/author[1]|Work|/object/work[1]/agent[1]| 
+ |/TEl/teiHeader[1]/profileDesc[1]/ textDesc[1]/*[namespace- uri()=' eltec/ns' and local- name()='canonicity'][1]/@xmlns||| 
+ |/TEl/teiHeader[1]/profileDesc[1]/ textDesc[1]/*[namespace- uri()=' eltec/ns' and local- name()='authorGender'][1]||| 
+ |/TEl/teiHeader[1]/profileDesc[1]/ textDesc[1]/*[namespace- uri()=' eltec/ns' and local-name()='size'] [1]||| 
+ |/TEl/teiHeader[1]/profileDesc[1]/ textDesc[1]/*[namespace- uri()=' eltec/ns' and local- name()='timeSlot'][1]|Work|| 
+ ||work|/object/work[1]/ dateOfCreation[1]| 
+ ||work|/object/work[1]/genre[1]| 
+ |/TEl/teiHeader[1]/fileDesc[1]/ sourceDesc[1]/bibl[1]/title[1]|item|/object/generic[1]/provided[1]/ title[1]| 
+ ||item|/object/generic[1]/provided[1]/ format[1]| 
+ |/TEl/teiHeader[1]/fileDesc[1]/ titleStmt[1]/respStmt[1]/resp[1]|item|/object/item[1]/rightsHolder[1]| 
 
 
 # References
