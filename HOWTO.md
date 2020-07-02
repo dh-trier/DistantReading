@@ -75,7 +75,7 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
 After all these files are created, they can all be automatically imported through <a href="https://dev.textgridlab.org/doc/services/submodules/kolibri/kolibri-addon-textgrid-import/docs/import_and_configuration.html">Kolibri</a>. This has been already tested with the files from the ELTeC. Coworkers of the Research and Development department of the State and University Library of Göttingen are actively supporting this tool. 
 
 ## XPaths: from the TEI to the TextGrid Objects
-As already mentioned, the ELTeC files already contains enough metadata to be imported into TextGrid. The following tables, taken from the "Project Seminar: Final Report" (see section "References") maps the fields from the elements of the TEI files and the TextGrid objects through xPaths.
+As already mentioned, the ELTeC files already contains enough metadata to be imported into TextGrid. The following tables, taken from the "Project Seminar: Final Report" (see section "References") maps the fields from the elements of the TEI files and the TextGrid objects through xPaths. (Please note that this table needed to be transformed from a PDF an converted into a markdown table, therefore it is possible that some typos appeared. If you need these xpaths for programming, make sure to take the original ones from the "Final report".)
 
  |ELTeC teiHeader|TextGrid Object|TextGrid XPath| 
  |------------|---------|---------| 
