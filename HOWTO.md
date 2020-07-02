@@ -52,10 +52,9 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
     3. It creates the **work files for each text** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
     4. It creates the **edition files for each text** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/">ENG001.edition and ENG001.edition.metadata, see in GitHub</a>)
     5. It creates the **item files for each text** (<a href="https://github.com/dh-trier/DistantReading/tree/master/2020-June/output/ELTeC/ENG/ENG001">ENG001.work and ENG001.work.metadata, see in GitHub</a>)
-5. Once these files are created, they map the structure that TextGrid requires for the import.
+5. Once these files are created, they map the structure that TextGrid requires for the import:
 
-
-        ►
+        ►ELTeC
         |_______DEU.aggregation
         |_______DEU.aggregation.meta
         |_____►DEU
@@ -66,6 +65,7 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
         | |__________-DEU001.xml.meta
         | |__________DEU001.work
         | |__________DEU001.work.meta
+        |
         |
 
 
