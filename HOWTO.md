@@ -72,5 +72,34 @@ Imagine that ELTeC contains already ten corpora in ten different languages. That
 ## Import through Kolibri into TextGrid
 After all these files are created, they can all be automatically imported through <a href="https://dev.textgridlab.org/doc/services/submodules/kolibri/kolibri-addon-textgrid-import/docs/import_and_configuration.html">Kolibri</a>. This has been already tested with the files from the ELTeC. Coworkers of the Research and Development department of the State and University Library of Göttingen are actively supporting this tool. 
 
+## Xpaths: from the TEI to the TextGrid Objects
+
+ |ELTeC teiHeader|TextGrid Object|TextGrid XPath| 
+ |------------|---------|---------| 
+ |/TEI/teiHeader[l]/fileDesc[l]/ titleStmt[l]/title[l]|Edition|/object/generic[l]/provided[l]/ title[l]| 
+ |"/TEI/teiHeader[l]/fileDesc[l]/
+sourceDesc[l]/ bibl[@type=""digitalSource""]/title/ text()"|Edition|/object/edition[l]/source[l]/ bibliographicCitation[l]/ editionTitle[l]| 
+ |/TEI/teiHeader/fileDesc/ publicationStmt/availability/ licence[@target]/text()|Edition|/object/edition[l]/license[l]| 
+ |"""{ORDNER:Roman-ID}/{Roman- ID}.work""
+/TEI[@xml:id]/text()"|Edition|/object/edition[l]/isEditionOf[l]| 
+ |/TEl/teiHeader[l]/profileDesc[l]/ langUsage[l]/language[l]|Edition|/object/edition[l]/language[l]| 
+ ||Edition|/object/edition[l]/agent[l]| 
+ ||Edition|/object/generic[l]/provided[l]/ format[l]| 
+ |/TEl/teiHeader[l]/fileDesc[l]/ sourceDesc[l]/bibl[l]/date[l]|Edition|/object/edition[l]/source[l]/ bibliographicCitation[l]/ dateOfPublication[l]| 
+ ||Edition|/object/edition[l]/source[l]/ bibliographicCitation[l]/ author[l]| 
+ |/TEl/teiHeader[l]/fileDesc[l]/ titleStmt[l]/title[l]|Work|/object/generic[l]/provided[l]/ title[l]| 
+ ||Work|/object/generic[l]/provided[l]/ format[l]| 
+ |/TEl/teiHeader[l]/fileDesc[l]/ titleStmt[l]/author[l]|Work|/object/work[l]/agent[l]| 
+ |/TEl/teiHeader[l]/profileDesc[l]/ textDesc[l]/*[namespace- uri()=' eltec/ns' and local- name()='canonicity'][l]/@xmlns||| 
+ |/TEl/teiHeader[l]/profileDesc[l]/ textDesc[l]/*[namespace- uri()=' eltec/ns' and local- name()='authorGender'][l]||| 
+ |/TEl/teiHeader[l]/profileDesc[l]/ textDesc[l]/*[namespace- uri()=' eltec/ns' and local-name()='size'] [1]||| 
+ |/TEl/teiHeader[l]/profileDesc[l]/ textDesc[l]/*[namespace- uri()=' eltec/ns' and local- name()='timeSlot'][l]|Work|| 
+ ||work|/object/work[l]/ dateOfCreation[l]| 
+ ||work|/object/work[l]/genre[l]| 
+ |/TEl/teiHeader[l]/fileDesc[l]/ sourceDesc[l]/bibl[l]/title[l]|item|/object/generic[l]/provided[l]/ title[l]| 
+ ||item|/object/generic[l]/provided[l]/ format[l]| 
+ |/TEl/teiHeader[l]/fileDesc[l]/ titleStmt[l]/respStmt[l]/resp[l]|item|/object/item[l]/rightsHolder[l]| 
+
+
 # References
 Certain sections of these "howto.md" file have been taken from the "Project Seminar: Final Report" by Schöch, Schönau and Chen.
